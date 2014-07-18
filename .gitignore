@@ -7,11 +7,7 @@
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
-/tmp/
-
-## Specific to Simplecov
-.resultset.json
-source/coverage/index.html
+/tmp
 
 ## Specific to RubyMotion:
 .dat*
