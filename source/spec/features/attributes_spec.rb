@@ -10,7 +10,7 @@ feature 'ability to view attributes' do
   end
 
   scenario 'when user rates and attribute' do
-    att = FactoryGirl.create :attribute
+    FactoryGirl.create :attribute
     visit attributes_path
     find(:xpath, "//input[@id='attr_rating']").set 57
     check('set_attribute')

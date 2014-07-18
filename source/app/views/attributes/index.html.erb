@@ -1,5 +1,10 @@
 Hello!
 
 <% @attributes.each do |attribute| %>
-  <%= attribute.name %>
+  <%= form_for(attribute) do |f| %>
+    <%= f.label attribute.name %>
+    <%= fields_for range_field max: 100, min: 0 %>
+    <%= f.check_box "stuff" %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
