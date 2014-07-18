@@ -14,6 +14,16 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/apprentice/BEN/gravitational-force/source/spec/rails_helper.rb": [
@@ -38,6 +48,7 @@
         null,
         1,
         null,
+        1,
         1,
         1,
         null,
@@ -218,6 +229,23 @@
         null,
         null
       ],
+      "/Users/apprentice/BEN/gravitational-force/source/spec/factories/users.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/apprentice/BEN/gravitational-force/source/config/routes.rb": [
         1,
         1,
@@ -294,10 +322,10 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
+        2,
         null,
         0,
         0,
@@ -312,7 +340,7 @@
         1,
         null,
         1,
-        1,
+        2,
         null,
         null,
         null
@@ -394,19 +422,19 @@
       "/Users/apprentice/BEN/gravitational-force/source/spec/models/user_spec.rb": [
 
       ],
-      "/Users/apprentice/BEN/gravitational-force/source/app/controllers/attributes_controller.rb": [
+      "/Users/apprentice/BEN/gravitational-force/source/app/models/user.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/apprentice/BEN/gravitational-force/source/app/models/user.rb": [
+      "/Users/apprentice/BEN/gravitational-force/source/app/controllers/attributes_controller.rb": [
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1405696554
+    "timestamp": 1405697255
   }
 }
