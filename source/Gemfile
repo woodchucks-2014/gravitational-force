@@ -49,7 +49,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.35.1'
   gem 'database_cleaner'
   gem 'simplecov', :require => false
 end
