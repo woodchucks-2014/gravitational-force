@@ -12,25 +12,37 @@ end
 feature 'ability to sign up as a user' do
 
   scenario 'user fills out sign up form without errors' do
-    pending
-  end
+    visit root_path
+    click_link 'Sign Up!'
+    fill_in 'Name', with: 'Ben Brostoff'
+    fill_in 'Email', with: 'ben.brostoff@gmail.com'
+    fill_in 'Password', with: 'test'
+    fill_in 'Password Confirmation', with: 'test'
+    click_button 'Sign Me Up!'
 
-  scenario 'user fills out sign up form with errors' do
-    pending
-  end
+    user = User.find_by_email('ben.brostoff@gmail.com')
 
-end
-
-feature 'ability to sign in as an existing user' do
-
-  scenario 'user fills out sign in form without errors' do
-    pending
-  end
-
-  scenario 'user fills out sign in form with errors' do
-    pending
+    expect(current_path).to eq(user_path(user))
   end
 
 end
+
+#   scenario 'user fills out sign up form with errors' do
+#     pending
+#   end
+
+# end
+
+# feature 'ability to sign in as an existing user' do
+
+#   scenario 'user fills out sign in form without errors' do
+#     pending
+#   end
+
+#   scenario 'user fills out sign in form with errors' do
+#     pending
+#   end
+
+# end
 
 
