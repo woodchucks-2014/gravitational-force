@@ -5,7 +5,7 @@ feature 'ability to view attributes' do
 
   scenario 'user visits index' do
     visit attributes_path
-    Factory.create :attribute
+    FactoryGirl.create :attribute
     expect(page).to have_content "Attribute_name"
   end
 
