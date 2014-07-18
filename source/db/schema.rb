@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140718151139) do
 
   create_table "attributes", force: true do |t|
     t.string "name"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
