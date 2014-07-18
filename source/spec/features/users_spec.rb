@@ -23,26 +23,49 @@ feature 'ability to sign up as a user' do
     user = User.find_by_email('ben.brostoff@gmail.com')
 
     expect(current_path).to eq(user_path(user))
+    expect(page).to have_content("Successful log in!")
+  end
+
+  scenario 'user fills out sign up form with errors' do
+    visit root_path
+    click_link 'Sign Up!'
+    fill_in 'Name', with: 'Ben Brostoff'
+    fill_in 'Password', with: 'test'
+    fill_in 'Password Confirmation', with: 'test'
+    click_button 'Sign Me Up!'
+
+    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content("Failed")
   end
 
 end
 
-#   scenario 'user fills out sign up form with errors' do
-#     pending
-#   end
+feature 'ability to sign in as an existing user' do
 
-# end
+  let(:user) { FactoryGirl.create :user }
 
-# feature 'ability to sign in as an existing user' do
+  scenario 'existing user fills out sign in form without errors' do
+    visit root_path
+    click_link 'Sign In!'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: "test"
+    click_button 'Log Me In!'
 
-#   scenario 'user fills out sign in form without errors' do
-#     pending
-#   end
+    expect(current_path).to eq(user_path(user))
+    expect(page).to have_content("Successful log in!")
+  end
 
-#   scenario 'user fills out sign in form with errors' do
-#     pending
-#   end
+  scenario 'existing user fills out sign in with invalid credentials' do
+    visit root_path
+    click_link 'Sign In!'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: "test2"
+    click_button 'Log Me In!'
 
-# end
+    expect(current_path).to eq(users_path)
+    expect(page).to have_content("Invalid credentials!")
+  end
+
+end
 
 

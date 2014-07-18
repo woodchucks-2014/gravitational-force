@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
 
+  def index
+
+  end
+
+  def login
+    @user = User.find_by(email: params[:user][:email])
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user] = @user.id
+      redirect_to user_path(@user), flash: {notice: "Successful log in!"}
+    else
+      redirect_to users_path, flash: {notice: 'Invalid credentials!' }
+    end
+  end
+
   def new
   end
 
@@ -7,15 +21,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params(params))
     if @user.save
       session[:user] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), flash: {notice: 'Successful log in!'}
     else
-      flash[:notice] = "Failed"
-      redirect_to new_user_path
+      redirect_to new_user_path, flash: {notice: 'Failed'}
     end
   end
 
+
   def show
-    flash[:notice] = "Successful log in!"
     @user = User.find(params[:id])
   end
 
