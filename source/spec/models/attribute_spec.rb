@@ -1,9 +1,10 @@
-require 'spec_helper'
 require 'rails_helper'
 
 describe Attribute do
-  it "should have a name" do
-    attribute = FactoryGirl.build :attribute
-    expect(attribute.name).to eq("Attribute_name")
+  let(:attribute) {FactoryGirl.build :attribute}
+
+  it "should create an instance of Attribute" do
+    expect(attribute).to be_instance_of(Attribute)
   end
+
 end
