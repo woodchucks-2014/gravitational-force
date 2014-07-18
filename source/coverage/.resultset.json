@@ -1,17 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/attributes_spec.rb": [
+      "/Users/michaelteter/Desktop/gravitational-force/source/spec/controllers/attributes_controller_spec.rb": [
         1,
         1,
         null,
         1,
-        null,
         1,
         1,
         1,
-        1,
-        null,
         null,
         null
       ],
@@ -289,25 +286,28 @@
         1,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/db/schema.rb": [
+      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/attributes_controller.rb": [
+        1,
+        1,
+        3,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        null
+      ],
+      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
+        null
+      ],
+      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/attributes_spec.rb": [
+        1,
+        1,
         null,
+        1,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -340,21 +340,8 @@
       "/Users/michaelteter/Desktop/gravitational-force/source/app/models/attribute.rb": [
         1,
         null
-      ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/attributes_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
       ]
     },
-    "timestamp": 1405696402
+    "timestamp": 1405697345
   }
 }
