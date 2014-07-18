@@ -5,9 +5,11 @@
         1,
         null,
         1,
+        2,
+        null,
         1,
         1,
-        1,
+        null,
         null,
         null
       ],
@@ -272,6 +274,11 @@
         1,
         1,
         null,
+        null,
+        1,
+        2,
+        null,
+        null,
         null
       ],
       "/Users/apprentice/Desktop/woodchucks/OG/gravitational-force/source/app/models/user.rb": [
@@ -285,6 +292,6 @@
         null
       ]
     },
-    "timestamp": 1405712742
+    "timestamp": 1405713460
   }
 }
