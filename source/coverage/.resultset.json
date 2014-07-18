@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/users_spec.rb": [
+      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/attributes_spec.rb": [
         1,
         1,
         null,
@@ -219,7 +219,7 @@
         1,
         1,
         1,
-        1,
+        null,
         null,
         null,
         null,
@@ -280,6 +280,18 @@
         1,
         null
       ],
+      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/users_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/attributes_controller.rb": [
         1,
         1,
@@ -294,6 +306,6 @@
         null
       ]
     },
-    "timestamp": 1405655212
+    "timestamp": 1405695002
   }
 }
