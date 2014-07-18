@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Rating, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Rating do
+  let(:rating) {Rating.create(value: 0)}
+
+  it "should create an instance of Rating" do
+    expect(rating).to be_instance_of(Rating)
+  end
+
 end
