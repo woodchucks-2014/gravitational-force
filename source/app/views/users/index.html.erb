@@ -1,0 +1,11 @@
+<%= notice %>
+
+<%= form_for :user, url: {action: "login"} do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.submit "Log Me In!" %>
+<% end %>
+
+
