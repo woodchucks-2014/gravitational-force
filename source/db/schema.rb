@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140718203926) do
     t.integer  "value"
     t.integer  "rating_user_id"
     t.integer  "rated_user_id"
-    t.integer  "attribute_id"
+    t.integer  "trait_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
