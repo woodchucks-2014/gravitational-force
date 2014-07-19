@@ -8,7 +8,7 @@ feature 'ability to view ratings' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
     t = FactoryGirl.create :trait
-    visit user_traits_path(User.first)
+    visit user_ratings_path(User.first)
     expect(page).to have_content t.name.capitalize
   end
 
