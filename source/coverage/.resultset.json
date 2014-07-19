@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/controllers/attributes_controller_spec.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/controllers/attributes_controller_spec.rb": [
         1,
         1,
         null,
@@ -13,7 +13,7 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/rails_helper.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -61,14 +61,14 @@
         1,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/environment.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/application.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/application.rb": [
         1,
         null,
         1,
@@ -93,13 +93,13 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/boot.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/environments/test.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/environments/test.rb": [
         1,
         null,
         null,
@@ -140,7 +140,7 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/assets.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -150,7 +150,7 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/backtrace_silencers.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -159,18 +159,18 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/cookies_serializer.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/filter_parameter_logging.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/inflections.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -188,18 +188,18 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/mime_types.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/session_store.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/initializers/wrap_parameters.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -215,14 +215,14 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/factories.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/factories.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/config/routes.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/config/routes.rb": [
         1,
         1,
         1,
@@ -283,25 +283,25 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/helpers/application_helper.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/attributes_controller.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/app/controllers/attributes_controller.rb": [
         1,
         1,
         3,
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/controllers/application_controller.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/attributes_spec.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/features/attributes_spec.rb": [
         1,
         1,
         null,
@@ -315,7 +315,7 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/features/users_spec.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/features/users_spec.rb": [
         1,
         1,
         null,
@@ -327,7 +327,7 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/spec/models/attribute_spec.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/spec/models/attribute_spec.rb": [
         1,
         1,
         null,
@@ -338,11 +338,11 @@
         null,
         null
       ],
-      "/Users/michaelteter/Desktop/gravitational-force/source/app/models/attribute.rb": [
+      "/Users/apprentice/Desktop/gravitational-force/source/app/models/attribute.rb": [
         1,
         null
       ]
     },
-    "timestamp": 1405698323
+    "timestamp": 1405792757
   }
 }
