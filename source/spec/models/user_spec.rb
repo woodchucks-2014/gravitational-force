@@ -21,6 +21,8 @@ describe User do
 
   before(:each) do
     greg.user_ratings << [rating_1, rating_2, rating_3]
+    #talk to rebecca about why factory girl does not create
+    #item in database / association
   end
 
   it "should create an instance of a user" do
@@ -38,7 +40,6 @@ describe User do
     it "should create an instance of a trait" do
     expect(sports).to be_instance_of(Trait)
   end
-
 
   context "validations" do
     it {should_not allow_value('bademailformat').for(:email)}
