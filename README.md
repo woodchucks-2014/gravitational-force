@@ -7,7 +7,7 @@ Primary contributors are as follows:
 
 * [Ben Brostoff](https://github.com/BenBrostoff)
 * [Drew Teter](https://github.com/mdrewt)
-* [Greg Picollo](https://github.com/scoin) 
+* [Greg Piccolo](https://github.com/scoin) 
 * [Katie Reiner](https://github.com/katiereiner)
 
 We have attempted to catalogue our work process using both [Trello](https://trello.com/b/duJtlW7A/grav) as well as the [Wiki](https://github.com/woodchucks-2014/gravitational-force/wiki) page for this repo.
