@@ -1,11 +1,11 @@
 <h1> Hi Everyone! </h1>
-
+<%= @user.name %>
 <% @traits.each do |trait| %>
-  <%= form_for(trait) do |f| %>
+  <%= form_for(trait, url: {action: "create"}) do |f| %>
     <%= f.label trait.name %>
-    <input type="range" id="">
+    <input type="range" name="traitname" id="traitname_rating" min="0" max="100">
     <%# fields_for range_field, trait.current_user_rating, max: 100, min: 0 %>
-    <%#= f.check_box %>
+    <input type="checkbox" name="something" value="Rate User" id="something">
     <%= f.submit %>
   <% end %>
 <% end %>

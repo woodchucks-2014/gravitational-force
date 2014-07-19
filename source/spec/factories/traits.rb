@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :trait do
-    name "Trait name"
+    name "traitname"
   end
 end
