@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :ratings
+  has_many :rated_users, foreign_key: :rating_user_id, class_name: 'Rating'
+  has_many :user_ratings, foreign_key: :rated_user_id, class_name: "Rating"
   has_many :traits, through: :ratings
 
   validates_presence_of :name, :email
