@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def self_score(trait)
-    rating = self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id)
-    rating.value
+    self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id).value
   end
 
   def delta(trait)
