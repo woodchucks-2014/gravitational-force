@@ -10,13 +10,15 @@ feature 'ability to view traits' do
   end
 
   scenario 'when user rates a trait' do
-    pending "not yet implemented"
-    # FactoryGirl.create :trait
-    # visit attributes_path
-    # find(:xpath, "//input[@id='attr_rating']").set 57
-    # check('set_attribute')
-    # click_button('submit')
-    # expect(Rating.all).to change(Rating, :count).by 1
+    user = FactoryGirl.create :user
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
+    trait = FactoryGirl.create :trait
+    visit traits_path
+    find(:xpath, "//input[@id='#{trait.name}_rating']").set 57
+    check('set_trait')
+    click_button('submit')
+    expect(Rating.all).to change(Rating, :count).by 1
   end
 
 end
