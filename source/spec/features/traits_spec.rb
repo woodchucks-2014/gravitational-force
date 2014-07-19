@@ -11,7 +11,7 @@ feature 'ability to view traits' do
 
   scenario 'when user rates a trait' do
     pending "not yet implemented"
-    # FactoryGirl.create :trait
+    FactoryGirl.create :trait
     # visit attributes_path
     # find(:xpath, "//input[@id='attr_rating']").set 57
     # check('set_attribute')
