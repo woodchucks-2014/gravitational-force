@@ -78,7 +78,8 @@ header {
 
 #rate_yourself_head {
   text-align: center;
-  font-size:35px;
+  font-size:25px;
+  padding-top:30px;
 }
 
 a.nav_link {
@@ -87,6 +88,7 @@ a.nav_link {
   padding-right: 10px;
   text-decoration: none;
   padding-top: 10px;
+  font-size: 20px;
 }
 
 a.nav_link:hover {
@@ -118,6 +120,7 @@ nav {
 }
 
 #att1_title {
+  top:40px;
   padding:10px;
   position:relative;
   left:50px;
@@ -125,6 +128,7 @@ nav {
 
 #att2_title {
   padding:10px;
+  top:60px;
   position:relative;
   left:50px;
 }
@@ -141,7 +145,30 @@ nav {
   margin-left:60px;
 }
 
-a.button_link {
+.button_link {
+  text-decoration: none;
+  text-align:center;
+  padding:5px;
+  padding-left:10px;
+  padding-right:10px;
+  background-color:#1f2f3f;
+  color:white;
+  border:1px solid black;
+  border-radius: 5px;
+  width:70px;
+  height:30px;
+  font-size:10px;
+  padding-left: 10px;
+  position:relative;
+  text-align:center;
+}
+
+.button_link:hover {
+  background-color:#465057;
+  color:white;
+}
+
+#index {
   text-decoration: none;
   text-align:center;
   padding:5px;
@@ -153,14 +180,17 @@ a.button_link {
   border-radius: 5px;
   width:90px;
   height:40px;
-  font-size:20px;
+  font-size:10px;
   padding-left: 10px;
   position:relative;
-  left:255px;
-  top:225px;
+  top:90px;
+  left:275px;
 }
 
-a.button_link:hover {
+#index:hover {
   background-color:#465057;
   color:white;
 }
+
+
+
