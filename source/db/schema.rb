@@ -16,10 +16,6 @@ ActiveRecord::Schema.define(version: 20140718203926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attributes", force: true do |t|
-    t.string "name"
-  end
-
   create_table "ratings", force: true do |t|
     t.integer  "value"
     t.integer  "rating_user_id"

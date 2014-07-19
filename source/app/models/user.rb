@@ -10,17 +10,13 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,}/}
 
   def user_score(trait)
-    ratings = self.user_ratings.where(trait_id: trait.id)
-    scores = []
-    ratings.each do |rating|
-      scores << rating.value if rating.rating_user_id != self.id
-    end
-    scores.inject(:+) / scores.count
+    ratings = self.user_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+    ratings.map! { |rating| rating.value }
+    ratings.inject(:+) / ratings.length
   end
 
   def self_score(trait)
-    rating = self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id)
-    rating.value
+    self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id).value
   end
 
   def delta(trait)
