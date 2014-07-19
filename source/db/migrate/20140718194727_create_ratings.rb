@@ -4,7 +4,7 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :value
       t.references :rating_user
       t.references :rated_user
-      t.references :attribute
+      t.references :trait
 
       t.timestamps
     end
