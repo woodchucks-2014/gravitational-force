@@ -35,19 +35,6 @@ ActiveRecord::Schema.define(version: 20140718203926) do
     t.datetime "updated_at"
   end
 
-  create_table "tweets", force: true do |t|
-    t.string   "tweet"
-    t.integer  "twitter_user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "twitter_users", force: true do |t|
-    t.string   "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
