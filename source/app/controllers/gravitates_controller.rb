@@ -1,0 +1,2 @@
+class GravitatesController < ApplicationController
+end
