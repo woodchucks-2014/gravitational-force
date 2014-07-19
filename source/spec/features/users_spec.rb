@@ -68,4 +68,18 @@ feature 'ability to sign in as an existing user' do
 
 end
 
+feature 'ability to log out as an existing user' do
+
+  let(:user) { FactoryGirl.create :user }
+
+  scenario 'existing user signs out by clicking on sign out link' do
+    visit users_path(user.id)
+    click_link 'Sign Out!'
+    expect(current_path).to eq(root_path)
+  end
+
+end
+
+
+
 

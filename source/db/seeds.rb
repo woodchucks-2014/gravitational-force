@@ -21,5 +21,11 @@ drew = User.create(name: "Drew Teter",
 programming = Trait.create(name: "Programming")
 sports = Trait.create(name: "Sports")
 
-Rating.create(value: 93, rating_user: drew.id
-  rated_user: ben.id, trait: programming.id)
+Rating.create(value: 93, rating_user_id: drew.id,
+  rated_user_id: ben.id, trait_id: programming.id)
+
+Rating.create(value: 3, rating_user_id: drew.id,
+  rated_user_id: katie.id, trait_id: programming.id)
+
+Rating.create(value: , rating_user_id: drew.id,
+  rated_user_id: katie.id, trait_id: programming.id)
