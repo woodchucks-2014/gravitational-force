@@ -73,7 +73,11 @@ feature 'ability to log out as an existing user' do
   let(:user) { FactoryGirl.create :user }
 
   scenario 'existing user signs out by clicking on sign out link' do
-    visit users_path(user.id)
+    visit root_path
+    click_link 'Sign In!'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: "test"
+    click_button 'Log Me In!'
     click_link 'Sign Out!'
     expect(current_path).to eq(root_path)
   end
