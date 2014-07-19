@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Rating do
+  let (:user_1) {FactoryGirl.create :user}
+  let(:user_2) {FactoryGirl.create :user}
   let(:rating) {Rating.create(value: 0)}
 
   it "should create an instance of Rating" do
@@ -18,5 +20,18 @@ describe Rating do
   it "should belong to a rating user" do
     expect(rating).to respond_to :rating_user
   end
+
+  it "is invalid without a value" do
+    pending
+  end
+
+  it "is invalid without a rating user" do
+    pending
+  end
+
+  it "is invalid without a rated user" do
+    pending
+  end
+
 
 end

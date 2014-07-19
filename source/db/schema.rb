@@ -16,11 +16,15 @@ ActiveRecord::Schema.define(version: 20140718203926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attributes", force: true do |t|
+    t.string "name"
+  end
+
   create_table "ratings", force: true do |t|
     t.integer  "value"
     t.integer  "rating_user_id"
     t.integer  "rated_user_id"
-    t.integer  "attribute_id"
+    t.integer  "trait_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +33,19 @@ ActiveRecord::Schema.define(version: 20140718203926) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tweets", force: true do |t|
+    t.string   "tweet"
+    t.integer  "twitter_user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "twitter_users", force: true do |t|
+    t.string   "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: true do |t|

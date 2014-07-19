@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :traits
 
   post '/users/login', to: 'users#login'
-
-
+  get '/users/:id/logout', to: 'users#sign_out'
 
 end

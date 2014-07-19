@@ -27,10 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_out
+    session.clear
+    redirect_to "/"
+  end
 
   def show
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
   end
+
 
  private
 
