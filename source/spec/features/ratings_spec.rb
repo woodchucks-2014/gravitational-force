@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
-feature 'ability to view traits' do
+feature 'ability to view ratings' do
 
   scenario 'when user visits index' do
     user = FactoryGirl.create :user

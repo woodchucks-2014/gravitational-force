@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "traits#index"
+  root "users#welcome"
   resources :users do
-    resources :traits
+    resources :ratings
   end
 
   post '/users/login', to: 'users#login'
