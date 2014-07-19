@@ -121,28 +121,24 @@ nav {
   padding:10px;
   position:relative;
   left:50px;
-  bottom:40px;
 }
 
 #att2_title {
   padding:10px;
   position:relative;
   left:50px;
-  bottom:20px;
 }
 
 .range_att1 {
   position:relative;
-  top:40px;
   width:270px;
-  left:165px;
+  margin-left:60px;
 }
 
 .range_att2 {
   position:relative;
-  top:100px;
   width:270px;
-  left:255px;
+  margin-left:60px;
 }
 
 a.button_link {
