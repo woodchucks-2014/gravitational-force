@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     p x_per - x_self
     p y_per - y_self
     dist = ((x_self - x_per)**2 + (y_self - y_per)**2)**(0.5)
-    dist.to_i
+    dist.floor
   end
 
   def discrepancy(trait_1, trait_2)
