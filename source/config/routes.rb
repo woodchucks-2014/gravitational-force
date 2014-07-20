@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get '/gravitate', to: 'gravitates#index'
   post '/gravitate', to: 'gravitates#graph'
-
+  get '/filter_request/:request', to: 'gravitates#filter_request'
 end
