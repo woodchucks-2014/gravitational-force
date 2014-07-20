@@ -9,10 +9,12 @@ class GravitatesController < ApplicationController
     trait_1 = Trait.find(params[:skill_1].values.first)
     trait_2 = Trait.find(params[:skill_2].values.first)
     user = User.find(params[:user].values.first)
+
     user_score_1 = user.user_score(trait_1)
     user_score_2 = user.user_score(trait_2)
     self_score_1 = user.self_score(trait_1)
     self_score_2 = user.self_score(trait_2)
+
     num_votes = user.num_votes(trait_1) + user.num_votes(trait_1)
     name = user.name
     name_perceived = user.name + " public perception"

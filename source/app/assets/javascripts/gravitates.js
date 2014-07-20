@@ -1,66 +1,40 @@
+
 $(document).ready(function() {
-  console.log("FUCK HOUSE");
-  $('form').hide();
 
   $("#graph_it").submit(function(e){
-    alert("FUCK YOU");
+    e.preventDefault();
     $.post('/gravitate', $("#graph_it").serialize(), 'json')
       .done(function(data){
+        console.log(data);
 
   users = [{
-      x: 100,
-      y: 100,
-      z: "ben",
-      g: "self",
-      size: 4
+      x: data.self_score_1,
+      y: data.self_score_2,
+      z: data.name,
+      size: 6
   }, {
-      x: 200,
-      y: 200,
-      z: "ben",
-      g: "perceived",
-      size: 8
-  }, {
-      x: 5,
-      y: 150,
-      z: "will",
-      g: "self",
-      size: 4
-  }, {
-      x: 50,
-      y: 120,
-      z: "drew",
-      g: "self",
-      size: 4
-  }, {
-      x: 205,
-      y: 120,
-      z: "katie",
-      g: "perceived",
-      size: 8
-  }, {
-      x: 10,
-      y: 300,
-      z: "katie",
-      g: "perceived",
-      size: 8
-  }, ]
+      x: data.user_score_1,
+      y: data.user_score_2,
+      z: data.name_perceived,
+      size: 6 + data.num_votes * (.5)
+  } ]
 
 
 
   // call the method below
-  showScatterPlot(users);
+  showScatterPlot(users, data);
 
-  function showScatterPlot(data) {
+  function showScatterPlot(data, all_data) {
       // just to have some space around items.
       var margins = {
-          "left": 40,
-              "right": 30,
-              "top": 30,
-              "bottom": 30
+              "left": 100,
+              "right": 100,
+              "top": 100,
+              "bottom": 100
       };
 
-      var width = 400;
-      var height = 400;
+      var width = 500;
+      var height = 500;
 
       // this will be our colour scale. An Ordinal scale.
       var colors = d3.scale.category10();
@@ -73,17 +47,14 @@ $(document).ready(function() {
       // the domain define the min and max variables to show. In this case, it's the min and max prices of items.
       // this is made a compact piece of code due to d3.extent which gives back the max and min of the price variable within the dataset
       var x = d3.scale.linear()
-          .domain(d3.extent(data, function (d) {
-          return d.x;
-      }))
+          .domain([0,100])
+
       // the range maps the domain to values from 0 to the width minus the left and right margins (used to space out the visualization)
       .range([0, width - margins.left - margins.right]);
 
       // this does the same as for the y axis but maps from the rating variable to the height to 0.
       var y = d3.scale.linear()
-          .domain(d3.extent(data, function (d) {
-          return d.y;
-      }))
+          .domain([0,100])
       // Note that height goes first due to the weird SVG coordinate system
       .range([height - margins.top - margins.bottom, 0]);
 
@@ -95,9 +66,18 @@ $(document).ready(function() {
       svg.append("text")
           .attr("fill", "#414241")
           .attr("text-anchor", "end")
-          .attr("x", width / 2)
-          .attr("y", height - 35)
-          .text("Likability");
+          .attr("x", (width - margins.left) / 2)
+          .attr("y", height - margins.top - 65)
+          .text(all_data.skill_1_name);
+
+      svg.append("text")
+          .attr("class", "y label")
+          .attr("text-anchor", "end")
+          .attr("x", -90)
+          .attr("y", -50)
+          .attr("dy", ".75em")
+          .attr("transform", "rotate(-90)")
+          .text(all_data.skill_2_name)
 
 
       // this is the actual definition of our x and y axes. The orientation refers to where the labels appear - for the x axis, below or above the line, and for the y axis, left or right of the line. Tick padding refers to how much space between the tick and the label. There are other parameters too - see https://github.com/mbostock/d3/wiki/SVG-Axes for more information
@@ -123,7 +103,7 @@ $(document).ready(function() {
 
       // we add our first graphics element! A circle!
       userGroup.append("circle")
-          .attr("r", 8)
+          .attr("r", function(d) {return d.size})
           .attr("class", "dot")
           .style("fill", function (d) {
           // remember the ordinal scales? We use the colors scale to get a colour for our manufacturer. Now each node will be coloured
@@ -146,5 +126,6 @@ $(document).ready(function() {
 });
 });
 });
+
 
 
