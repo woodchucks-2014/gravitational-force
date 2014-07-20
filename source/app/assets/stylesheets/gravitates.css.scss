@@ -1,0 +1,18 @@
+// Place all the styles related to the Gravitates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    font-family:"Helvetica Neue";
+    color: #686765;
+}
+.name {
+    float:right;
+    color:#27aae1;
+}
+.axis {
+    fill: none;
+    stroke: #AAA;
+    stroke-width: 1px;
+}
+
