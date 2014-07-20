@@ -1,0 +1,14 @@
+<h1> Hi Everyone! </h1>
+<%= @user.name %>
+<%= form_for(@user, url: {action: "create"}) do |f| %>
+ <% @ratings.each do |rating| %>
+    <%= f.label rating.trait.name %>
+    <input type="range" name="traitname" id="traitname_rating" min="0" max="100">
+    <%# fields_for range_field, trait.current_user_rating, max: 100, min: 0 %>
+    <input type="checkbox" name="something" id="something">
+    <br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+
+
