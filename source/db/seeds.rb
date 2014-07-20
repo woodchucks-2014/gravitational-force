@@ -29,7 +29,7 @@ def loop_it(users, trait)
     users.each do |user|
         users.each do |boozer|
             rand_num = rand(1..100)
-            Rating.create(value: rand_num, rating_user_id: user.id, rated_user_id: boozer.id, trait_id: trait.id)
+            Rating.create(value: rand_num, rater_id: user.id, ratee_id: boozer.id, trait_id: trait.id)
         end
     end
 end
