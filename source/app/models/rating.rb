@@ -5,5 +5,4 @@ class Rating < ActiveRecord::Base
 
   validates_presence_of :rated_user_id, :rating_user_id, :value
 
-
 end

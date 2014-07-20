@@ -14,7 +14,4 @@ class RatingsController < ApplicationController
     redirect_to traits_path
   end
 
-  def fuck
-  end
-
 end
