@@ -1,7 +1,9 @@
 $(document).ready(function() {
+  console.log("FUCK HOUSE");
+  $('form').hide();
 
   $("#graph_it").submit(function(e){
-    e.preventDefault();
+    alert("FUCK YOU");
     $.post('/gravitate', $("#graph_it").serialize(), 'json')
       .done(function(data){
 
