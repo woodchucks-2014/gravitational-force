@@ -1,3 +1,12 @@
+.container{
+  padding: 10%;
+}
+
+#filters{
+margin-top: 100px;
+}
+
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -63,7 +72,7 @@ body {
 
 header {
   background-color: #1E1E20;
-  height:80px;
+  height:0px;
   padding-bottom:20px;
   width:100%;
   position:fixed;
