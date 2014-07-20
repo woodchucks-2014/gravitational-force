@@ -10,18 +10,18 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,}/}
 
   def user_score(trait)
-    ratings = self.recieved_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+    ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     ratings.map! { |rating| rating.value }
     ratings.inject(:+) / ratings.length
   end
 
   def num_votes(trait) # submitted or received?
-    ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+    ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     ratings.size
   end
 
   def self_score(trait)
-    self.user_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value
+    self.received_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value
   end
 
   def delta(trait) #higher means low self esteem
