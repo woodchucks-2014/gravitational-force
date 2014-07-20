@@ -1,27 +1,27 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :rated_users, foreign_key: :rating_user_id, class_name: 'Rating'
-  has_many :user_ratings, foreign_key: :rated_user_id, class_name: "Rating"
-  has_many :traits, through: :ratings
+  has_many :received_ratings, class_name: :Rating, foreign_key: :ratee_id
+  has_many :submitted_ratings, class_name: :Rating, foreign_key: :rater_id
+  has_many :traits, through: :received_ratings
 
   validates_presence_of :name, :email
   validates_uniqueness_of :email
   validates :email, format: {with: /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,}/}
 
   def user_score(trait)
-    ratings = self.user_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+    ratings = self.recieved_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
     ratings.map! { |rating| rating.value }
     ratings.inject(:+) / ratings.length
   end
 
-  def num_votes(trait)
-    ratings = self.user_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+  def num_votes(trait) # submitted or received?
+    ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
     ratings.size
   end
 
   def self_score(trait)
-    self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id).value
+    self.user_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value
   end
 
   def delta(trait) #higher means low self esteem
