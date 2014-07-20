@@ -20,7 +20,7 @@ describe User do
                   trait_id: sports.id)}
 
   before(:each) do
-    greg.recieved_ratings << [rating_1, rating_2, rating_3]
+    greg.received_ratings << [rating_1, rating_2, rating_3]
     #talk to rebecca about why factory girl does not create
     #item in database / association
   end
@@ -30,7 +30,7 @@ describe User do
   end
 
   it "should have rating" do
-    expect(greg.recieved_ratings.size).to eq(3)
+    expect(greg.received_ratings.size).to eq(3)
   end
 
    it "should create an instance of a rating" do

@@ -4,8 +4,7 @@ describe Rating do
 
   let(:user1) {FactoryGirl.create :user}
   let(:user2) {FactoryGirl.create :user}
-  let(:rating) {Rating.create(value: 0, rating_user_id: user1, rated_user_id: user2)}
-  let(:bad_rating) {Rating.create}
+  let(:rating) {Rating.create(value: 0, rater_id: 1, ratee_id: 2)}
 
 
   it "should create an instance of Rating" do
@@ -16,25 +15,27 @@ describe Rating do
     expect(rating).to respond_to :trait
   end
 
-  it "should belong to a rated user" do
-    expect(rating).to respond_to :rated_user
+  it "should belong to a rater" do
+    expect(rating).to respond_to :rater
   end
 
-  it "should belong to a rating user" do
-    expect(rating).to respond_to :rating_user
+  it "should belong to a ratee" do
+    expect(rating).to respond_to :ratee
   end
 
   it "is invalid without a value" do
-    #expect(bad_rating.save).to eq(false)
-    expect(bad_rating.errors[:value].size).to eq(1)
+    bad_rating = Rating.create(value: nil, rater_id: 1, ratee_id: 2)
+    expect(bad_rating.valid?).to eq(false)
   end
 
   it "is invalid without a rating user" do
-    expect(bad_rating.errors[:rating_user_id].size).to eq(1)
+    bad_rating = Rating.create(value: 0, rater_id: nil, ratee_id: 2)
+    expect(bad_rating.valid?).to eq(false)
   end
 
   it "is invalid without a rated user" do
-    expect(bad_rating.errors[:rated_user_id].size).to eq(1)
+    bad_rating = Rating.create(value: 0, rater_id: 1, ratee_id: nil)
+    expect(bad_rating.valid?).to eq(false)
   end
 
 
