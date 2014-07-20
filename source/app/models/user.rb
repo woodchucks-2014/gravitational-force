@@ -52,14 +52,13 @@ class User < ActiveRecord::Base
       return false
     end
   end
-  #User.first.point_distance(Trait.first, Trait.second)
 
-  def self.perception(trait_1, trait_2) #least self esteem
+  def self.perception(trait_1, trait_2) #perception is "higher"
     filter = User.all { |user| user.discrepancy(trait_1, trait_2) == false }
     filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.last
   end
 
-  def self.individual(trait_1, trait_2) #person who thinks highest of themself inaccurately
+  def self.individual(trait_1, trait_2) #self rating is "higher"
     filter = User.all { |user| user.discrepancy(trait_1, trait_2) == true }
     filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.first
   end

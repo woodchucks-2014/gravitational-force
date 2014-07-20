@@ -50,7 +50,6 @@ describe User do
     it "should return the average rating a user received excluding his/her own rating" do
       expect(greg.user_score(sports)).to eq(15)
     end
-
   end
 
   context "#self_score" do
@@ -65,6 +64,46 @@ describe User do
 
     it "should return the difference between #user_score and #self_score" do
       expect(greg.delta(sports)).to eq(-15)
+    end
+
+  end
+
+  context "#point_distance" do
+
+    it "should measure the distance between two points" do
+      pending
+    end
+
+  end
+
+  context ".perception" do
+
+    it "should return the user with largest distance where perception is greater than self rating" do
+      pending
+    end
+
+  end
+
+  context ".individual" do
+
+    it "should return the user with largest distance where individual is greater than perception rating" do
+      pending
+    end
+
+  end
+
+  context ".accurate" do
+
+    it "should return the user who has the smallest distance between self and perception" do
+      pending
+    end
+
+  end
+
+  context ".deluded" do
+
+    it "should return the user who has the largest distance between self and perception" do
+      pending
     end
 
   end

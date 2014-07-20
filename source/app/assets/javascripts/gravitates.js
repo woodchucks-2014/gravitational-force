@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-  var methods = ['low_esteem', 'high_esteem', 'accurate', 'deluded']
+  var methods = ['perception', 'individual', 'accurate', 'deluded']
   var gdata = ''
   $("#graph_it").submit(function(e){
     gdata = ''
