@@ -28,28 +28,30 @@ $(document).ready(function() {
       x: data.self_score_1,
       y: data.self_score_2,
       z: data.name,
+      size: 6
   }, {
       x: data.user_score_1,
       y: data.user_score_2,
       z: data.name_perceived,
+      size: 6 + data.num_votes * (.5)
   } ]
 
 
 
   // call the method below
-  showScatterPlot(users);
+  showScatterPlot(users, data);
 
-  function showScatterPlot(data) {
+  function showScatterPlot(data, all_data) {
       // just to have some space around items.
       var margins = {
-          "left": 40,
-              "right": 30,
-              "top": 30,
-              "bottom": 30
+              "left": 100,
+              "right": 100,
+              "top": 100,
+              "bottom": 100
       };
 
-      var width = 400;
-      var height = 400;
+      var width = 500;
+      var height = 500;
 
       // this will be our colour scale. An Ordinal scale.
       var colors = d3.scale.category10();
@@ -81,9 +83,18 @@ $(document).ready(function() {
       svg.append("text")
           .attr("fill", "#414241")
           .attr("text-anchor", "end")
-          .attr("x", width / 2)
-          .attr("y", height - 35)
-          .text("Likability");
+          .attr("x", (width - margins.left) / 2)
+          .attr("y", height - margins.top - 65)
+          .text(all_data.skill_1_name);
+
+      svg.append("text")
+          .attr("class", "y label")
+          .attr("text-anchor", "end")
+          .attr("x", -90)
+          .attr("y", -50)
+          .attr("dy", ".75em")
+          .attr("transform", "rotate(-90)")
+          .text(all_data.skill_2_name)
 
 
       // this is the actual definition of our x and y axes. The orientation refers to where the labels appear - for the x axis, below or above the line, and for the y axis, left or right of the line. Tick padding refers to how much space between the tick and the label. There are other parameters too - see https://github.com/mbostock/d3/wiki/SVG-Axes for more information
@@ -109,7 +120,7 @@ $(document).ready(function() {
 
       // we add our first graphics element! A circle!
       userGroup.append("circle")
-          .attr("r", 8)
+          .attr("r", function(d) {return d.size})
           .attr("class", "dot")
           .style("fill", function (d) {
           // remember the ordinal scales? We use the colors scale to get a colour for our manufacturer. Now each node will be coloured

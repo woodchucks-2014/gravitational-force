@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
     ratings.inject(:+) / ratings.length
   end
 
+  def num_votes(trait)
+    ratings = self.user_ratings.where(trait_id: trait.id).select{|rating| rating.rating_user_id != self.id}
+    ratings.size
+  end
+
   def self_score(trait)
     self.user_ratings.find_by(trait_id: trait.id, rating_user_id: self.id, rated_user_id: self.id).value
   end

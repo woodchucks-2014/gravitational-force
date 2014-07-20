@@ -13,6 +13,7 @@ class GravitatesController < ApplicationController
     user_score_2 = user.user_score(trait_2)
     self_score_1 = user.self_score(trait_1)
     self_score_2 = user.self_score(trait_2)
+    num_votes = user.num_votes(trait_1) + user.num_votes(trait_1)
     name = user.name
     name_perceived = user.name + " public perception"
 
@@ -22,6 +23,9 @@ class GravitatesController < ApplicationController
                  user_score_2: user_score_2,
                  self_score_1: self_score_1,
                  self_score_2: self_score_2,
+                 num_votes: num_votes,
+                 skill_1_name: trait_1.name,
+                 skill_2_name: trait_2.name
                  }
     render json: @response
   end
