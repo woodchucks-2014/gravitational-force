@@ -4,14 +4,14 @@ class RatingsController < ApplicationController
     @user = User.find(params[:user_id])
     @ratings = []
     Trait.all.each do |trait|
-      rating = Rating.where(rated_user_id: @user.id, trait_id: trait.id).first
-      rating ||= Rating.new(rated_user_id: @user.id, rating_user_id: current_user.id, trait_id: trait.id)
+      rating = Rating.where(ratee_id: @user.id, rater_id: current_user.id, trait_id: trait.id).first
+      rating ||= Rating.new(ratee_id: @user.id, rater_id: current_user.id, trait_id: trait.id)
       @ratings << rating
     end
   end
 
   def create
-    redirect_to traits_path
+    redirect_to root_path
   end
 
 end
