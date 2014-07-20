@@ -23,7 +23,7 @@ class GravitatesController < ApplicationController
                  self_score_1: self_score_1,
                  self_score_2: self_score_2,
                  }
-    redirect_to gravitate_path
+    render
   end
 
 end

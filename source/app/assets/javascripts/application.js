@@ -18,27 +18,7 @@
 
 $(document).ready(function() {
 
-
-  $('body').on('submit', function(e) {
-    e.preventDefault();
-    var ajaxRequest = $.ajax({
-      type: "POST",
-      url: "/gravitate",
-      dataType: "json", // defining type
-    });
-    ajaxRequest.done(function(response) {
-      var rand = response.cell // getting cell attribute from JSON object
-      console.log("success");
-      $("li").eq(rand).css("background-color", response.color); // getting color attribute from JSON object
-    });
-    ajaxRequest.fail(function(response){
-      console.log("Fail");
-    });
-  });
-});
-
-
-  chocolates = [{
+  users = [{
       x: 100,
       y: 100,
       z: "ben",
@@ -79,7 +59,7 @@ $(document).ready(function() {
 
 
   // call the method below
-  showScatterPlot(chocolates);
+  showScatterPlot(users);
 
   function showScatterPlot(data) {
       // just to have some space around items.
@@ -140,20 +120,20 @@ $(document).ready(function() {
       svg.selectAll("g.x.axis").call(xAxis);
 
       // now, we can get down to the data part, and drawing stuff. We are telling D3 that all nodes (g elements with class node) will have data attached to them. The 'key' we use (to let D3 know the uniqueness of items) will be the name. Not usually a great key, but fine for this example.
-      var chocolate = svg.selectAll("g.node").data(data, function (d) {
+      var user = svg.selectAll("g.node").data(data, function (d) {
           return d.x;
       });
 
       // we 'enter' the data, making the SVG group (to contain a circle and text) with a class node. This corresponds with what we told the data it should be above.
 
-      var chocolateGroup = chocolate.enter().append("g").attr("class", "node")
+      var userGroup = user.enter().append("g").attr("class", "node")
       // this is how we set the position of the items. Translate is an incredibly useful function for rotating and positioning items
       .attr('transform', function (d) {
           return "translate(" + x(d.x) + "," + y(d.y) + ")";
       });
 
       // we add our first graphics element! A circle!
-      chocolateGroup.append("circle")
+      userGroup.append("circle")
           .attr("r", 8)
           .attr("class", "dot")
           .style("fill", function (d) {
@@ -163,7 +143,7 @@ $(document).ready(function() {
       });
 
       // now we add some text, so we can see what each item is.
-      chocolateGroup.append("text")
+      userGroup.append("text")
           .style("text-anchor", "middle")
           .attr("dy", -10)
           .text(function (d) {
