@@ -1,6 +1,6 @@
 
 
-<%= form_for :graph do |f| %>
+<%= form_for :graph, :html => { :id => "graph_it  " } do |f| %>
 Pick a User
 <%= collection_select(:user, :rating_user_id, User.all, :id, :name) %>
 <br>
