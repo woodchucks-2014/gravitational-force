@@ -8,10 +8,10 @@ describe GravitatesController do
     expect(assigns(:users)).to eq User.all
   end
 
-  it "assings all traits in index" do 
+  it "assings all traits in index" do
     FactoryGirl.create :trait
     get :index
-    expect(assigns(:trait)).to eq Trait.all
+    expect(assigns(:traits)).to eq Trait.all
   end
 
 end

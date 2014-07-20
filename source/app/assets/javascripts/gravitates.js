@@ -24,8 +24,10 @@ $(document).ready(function() {
         }]
 
         showScatterPlot(users, data);
-    
+
       $.each(methods, function(i, method){
+        console.log(i);
+        console.log(method);
         $("#filters").append("<button id =" + method + i + ">Most " + method + " Person in " + gdata.skill_1_name + "</button>")
         //$("#filters").append("<button id =" + method + i + ">Most" + method + " Person in " + gdata.skill_2_name + "</button>")
         $("#filters").on("click", "#"+method+i, function(e){
