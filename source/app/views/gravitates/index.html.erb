@@ -4,7 +4,7 @@
 
 <%= form_for :graph, url: "gravitate", html: { :id => "graph_it" } do |f| %>
 Pick a User
-<%= collection_select(:user, :rating_user_id, User.all, :id, :name) %>
+<%= collection_select(:user, :rater_id, User.all, :id, :name) %>
 <br>
 Pick a Skill
 <%= collection_select(:skill_1, :trait_id, Trait.all, :id, :name) %>
