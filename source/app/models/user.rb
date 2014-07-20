@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   has_secure_password
 
@@ -20,6 +21,7 @@ class User < ActiveRecord::Base
     ratings.size
   end
 
+
   def self_score(trait)
     self.received_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value
   end
@@ -28,20 +30,47 @@ class User < ActiveRecord::Base
     user_score(trait) - self_score(trait)
   end
 
-  def self.low_esteem(trait) #least self esteem
-    all.sort_by{|user| user.delta(trait)}.last
+  def point_distance(trait_1, trait_2) #finds distance between two points
+    x_self = self.self_score(trait_1)
+    y_self = self.self_score(trait_2)
+    x_per = self.user_score(trait_1)
+    y_per = self.user_score(trait_2)
+    p x_per - x_self
+    p y_per - y_self
+    dist = ((x_self - x_per)**2 + (y_self - y_per)**2)**(0.5)
+    dist.to_i
   end
 
-  def self.high_esteem(trait) #person who thinks highest of themself inaccurately
-    all.sort_by{|user| user.delta(trait)}.first
+  def discrepancy(trait_1, trait_2)
+    x_self = self.self_score(trait_1)
+    y_self = self.self_score(trait_2)
+    x_per = self.user_score(trait_1)
+    y_per = self.user_score(trait_2)
+    if (x_self - x_per) + (y_self - y_per) >= 0
+      return true
+    else
+      return false
+    end
+  end
+  #User.first.point_distance(Trait.first, Trait.second)
+
+  def self.perception(trait_1, trait_2) #least self esteem
+    filter = User.all { |user| user.discrepancy(trait_1, trait_2) == false }
+    filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.last
   end
 
-  def self.accurate(trait) #most on point
-    all.sort_by{|user| user.delta(trait).abs}.first
+  def self.individual(trait_1, trait_2) #person who thinks highest of themself inaccurately
+    filter = User.all { |user| user.discrepancy(trait_1, trait_2) == true }
+    filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.first
   end
 
-  def self.deluded(trait) #most inaccurate perception
-    all.sort_by{|user| user.delta(trait).abs}.last
+  def self.accurate(trait_1, trait_2) #most on point
+    all.sort_by{|user| user.point_distance(trait_1, trait_2)}.first
+  end
+
+  def self.deluded(trait_1, trait_2) #most inaccurate perception
+    all.sort_by{|user| user.point_distance(trait_1, trait_2)
+      }.last
   end
 
 end
