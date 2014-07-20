@@ -22,13 +22,12 @@ $(document).ready(function() {
         }]
 
         showScatterPlot(users, data);
-        $("#filters").html("<button id = 'delusion'>Most Deluded Person in " + data.skill_1_name + "</button>")
+        $("#filters").html("<button id = 'delusion'>Most Rational Person in " + data.skill_1_name + "</button>")
     });
 
 
-        $("#filters").on("click", "#delusion", function(e){
-
-          $.get('/filter_request/deluded', {skill_1: gdata.trait_1_id, skill_2: gdata.trait_1_id}, 'json')
+        $("#filters").delegate("#delusion", "click", function(e){
+          $.get('/filter_request/accurate', {skill_1: gdata.trait_1_id, skill_2: gdata.trait_1_id}, 'json')
             .done(function(data){
             users = [{
             x: data.self_score_1,

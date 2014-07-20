@@ -7,8 +7,8 @@ function showScatterPlot(data, all_data) {
               "bottom": 100
       };
 
-      var width = 500;
-      var height = 500;
+      var width = 550;
+      var height = 550;
 
       // this will be our colour scale. An Ordinal scale.
       var colors = d3.scale.category10();
