@@ -1,27 +1,34 @@
 
 
-<div id="filters">
+<div class="left_gravitate">
+
+  <div id="filters"></div>
+
+
+  <%= form_for :graph, url: "gravitate", html: { :id => "graph_it" } do |f| %>
+    <table>
+      <tr>
+      <td>Pick a User</td>
+      <td><%= collection_select(:user, :rater_id, User.all, :id, :name) %></td>
+      </tr>
+      <tr>
+      <td>Pick a Skill</td>
+      <td><%= collection_select(:skill_1, :trait_id, Trait.all, :id, :name) %></td>
+      </tr>
+      <tr>
+      <td>Pick a Second Skill</td>
+      <td><%= collection_select(:skill_2, :trait_id, Trait.all, :id, :name) %></td>
+      </tr>
+    </table>
+    <%= f.submit "Gravitate"%>
+  <% end %>
+
 </div>
 
-
-<%= form_for :graph, url: "gravitate", html: { :id => "graph_it" } do |f| %>
-Pick a User
-<%= collection_select(:user, :rater_id, User.all, :id, :name) %>
-<br>
-Pick a Skill
-<%= collection_select(:skill_1, :trait_id, Trait.all, :id, :name) %>
-<br>
-Pick a Second Skill
-<%= collection_select(:skill_2, :trait_id, Trait.all, :id, :name) %>
-<br>
-<%= f.submit "Gravitate"%>
-<% end %>
-
-
-<div id="dot_data"></div>
-
-<div id="scatter-load"></div>
-
+<div class="right_gravitate">
+  <div id="scatter-load"></div>
+  <div id="dot_data"></div>
+</div>
 
 <script>
   // trust us, we know what we're doing here
