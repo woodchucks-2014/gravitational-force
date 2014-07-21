@@ -1,6 +1,8 @@
 
+
 <div id="filters">
 </div>
+
 
 <%= form_for :graph, url: "gravitate", html: { :id => "graph_it" } do |f| %>
 Pick a User
@@ -21,3 +23,10 @@ Pick a Second Skill
 <div id="scatter-load"></div>
 
 
+<script>
+  // trust us, we know what we're doing here
+  var reload = <%= notice %>
+  if (reload) {
+    window.location.replace("/");
+  }
+</script>

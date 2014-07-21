@@ -17,15 +17,23 @@ body {
 
 .side_nav {
   background-color:grey;
-  height:1000px;
+  height: auto;
+  padding-bottom: 100px;
   width:225px;
   position:fixed;
-  left:0;
-  margin-top:82px;
-  border-right: 3px solid black;
+  left: 10px;
+  margin-top:150px;
+  border-radius: 10px;
+  border: 3px solid black;
 }
 
-#logo_pic {
+.left_nav {
+  float: left;
+  display: inline-block;
+  margin-right: 50px;
+}
+
+#logo {
   height:70px;
   width:70px;
   position:relative;
@@ -62,13 +70,16 @@ body {
 .rate_yourself {
   position:relative;
   width:620px;
-  height:400px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   border: 3px solid black;
   background-color: #73838F;
   border-radius: 10px;
   left:35%;
-  top:300px;
+  top:150px;
+  text-align: center;
 }
+
 
 header {
   background-color: #1E1E20;
@@ -88,7 +99,6 @@ header {
 #rate_yourself_head {
   text-align: center;
   font-size:25px;
-  padding-top:30px;
 }
 
 a.nav_link {
@@ -148,12 +158,6 @@ nav {
   margin-left:60px;
 }
 
-.range_att2 {
-  position:relative;
-  width:270px;
-  margin-left:60px;
-}
-
 .button_link {
   text-decoration: none;
   text-align:center;
@@ -164,7 +168,6 @@ nav {
   color:white;
   border:1px solid black;
   border-radius: 5px;
-  width:70px;
   height:30px;
   font-size:10px;
   padding-left: 10px;
@@ -201,5 +204,12 @@ nav {
   color:white;
 }
 
+.users {
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
 
 

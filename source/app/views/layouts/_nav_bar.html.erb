@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <a href=<%= root_path %>><img src="http://imgur.com/IpMWMLg.jpg" id="logo_pic" ></a>
+    <a href=<%= test_path %>><img src="http://imgur.com/IpMWMLg.jpg" id="logo" ></a>
 
     <ul>
       <% if !logged_in? %>
@@ -9,6 +9,8 @@
       <% end %>
 
       <% if logged_in? %>
+      <span class="left_nav"> Logged in as <%=current_user.name%> </span>
+      <%= link_to "GraviRate!", user_ratings_path(current_user), :class => "nav_link"%>
       <%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_link"%>
       <% end %>
     </ul>

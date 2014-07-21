@@ -1,8 +1,10 @@
 class RatingsController < ApplicationController
-   include UsersHelper
+  include ApplicationHelper
 
   def index
-    current_user
+    p "*" * 50
+    p "TEST"
+    @user = current_user
     @ratee = User.find(params[:user_id])
     @ratings = []
     Trait.all.each do |trait|
@@ -13,7 +15,7 @@ class RatingsController < ApplicationController
   end
 
   def create
-    current_user
+    @user = current_user
     Trait.all.each do |trait|
       if params["save_" + trait.name]
         new_rating = Rating.where(ratee_id: params["user_id"], rater_id: @user.id, trait_id:trait.id).first
@@ -27,5 +29,6 @@ class RatingsController < ApplicationController
     end
     redirect_to root_path
   end
+
 
 end

@@ -4,11 +4,16 @@ class UsersController < ApplicationController
 
   end
 
+  def test
+    flash[:notice] = true
+    redirect_to '/'
+  end
+
   def login
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user] = @user.id
-      redirect_to user_path(@user), flash: {notice: "Successful log in!"}
+      redirect_to user_ratings_path(@user), flash: {notice: "Successful log in!"}
     else
       redirect_to users_path, flash: {notice: 'Invalid credentials!' }
     end
