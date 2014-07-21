@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20140718203926) do
 
   create_table "ratings", force: true do |t|
     t.integer  "value"
-    t.integer  "rating_user_id"
-    t.integer  "rated_user_id"
+    t.integer  "rater_id"
+    t.integer  "ratee_id"
     t.integer  "trait_id"
     t.datetime "created_at"
     t.datetime "updated_at"

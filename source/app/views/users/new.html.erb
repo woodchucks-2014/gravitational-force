@@ -1,23 +1,25 @@
-<p> Sign Up! </p>
+
+<div class="signup_form">
+<h1> Sign Up </h1>
 
 <%= flash[:notice] %>
 <%= form_for :user,  url: {action: "create"} do |f| %>
 
     <%= f.label :name, "Name" %><br />
-    <%= f.text_field :name, placeholder: "Ben Brostoff" %><br>
+    <%= f.text_field :name, placeholder: "First Last" %><br><br>
 
 
     <%= f.label :email, "Email" %><br />
-    <%= f.text_field :email, placeholder: "ben.brostoff@gmail.com" %><br>
+    <%= f.text_field :email, placeholder: "user@email.com" %><br><br>
 
     <%= f.label :password %><br />
-    <%= f.password_field :password, placeholder: "Password"  %><br>
+    <%= f.password_field :password, placeholder: "Password"  %><br><br>
 
     <%= f.label :password_confirmation, "Password Confirmation" %><br />
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password"  %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password"  %><br><br>
 
-    <div class="text-center">
-      <%= f.submit "Sign Me Up!"%>
-    </div>
+      <%= f.submit "Sign Up", class: 'button_link' %>
+
 
   <% end %>
+</div>

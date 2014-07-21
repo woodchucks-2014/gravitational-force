@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-  var methods = ['low_esteem', 'high_esteem', 'accurate', 'deluded']
+  var methods = ['perception', 'individual', 'accurate', 'deluded']
   var gdata = ''
   $("#graph_it").submit(function(e){
     gdata = ''
@@ -24,14 +24,14 @@ $(document).ready(function() {
         }]
 
         showScatterPlot(users, data);
-    
+
       $.each(methods, function(i, method){
         randNum1 = Math.floor((Math.random() * 100) + 1);
-        $("#filters").append("<button id =" + method + randNum1 + ">Most " + method + " Person in " + gdata.skill_1_name + "</button>")
+        $("#filters").append("<button id =" + method + i + ">Most " + method + " Person in " + gdata.skill_1_name + " and " + gdata.skill_2_name+ "</button>")
         //$("#filters").append("<button id =" + method + i + ">Most" + method + " Person in " + gdata.skill_2_name + "</button>")
-        
-        $("#filters").on("click", "#"+method+randNum1, function(e){
-          $.get('/filter_request/'+method, {skill_1: gdata.trait_1_id, skill_2: gdata.trait_1_id}, 'json')
+        console.log(method);
+        $("#filters").on("click", "#"+method+i, function(e){
+          $.get('/filter_request/'+method, {skill_1: gdata.trait_1_id, skill_2: gdata.trait_2_id}, 'json')
             .done(function(data){
               console.log('did it')
             users = [{
@@ -46,7 +46,7 @@ $(document).ready(function() {
             size: 6 + data.num_votes * (.5)
         }]
           $('#scatter-load').html("")
-          showScatterPlot(users, data);
+          showScatterPlot(users, gdata);
             })
         })
         })
