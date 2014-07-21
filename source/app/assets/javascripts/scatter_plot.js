@@ -77,7 +77,7 @@ function showScatterPlot(data, all_data) {
 
       // we add our first graphics element! A circle!
       
-      circ = userGroup.append("circle")
+       userGroup.append("circle")
           .attr("r", function(d) {return d.size})
           .attr("class", "dot") 
           .attr("id", function(d, i) { if(i===0){
