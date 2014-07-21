@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  root "users#welcome"
+  root "ratings#index", user_id: 1
+  post '/users/login', to: 'users#login'
+
   resources :users do
     resources :ratings
   end
 
-  post '/users/login', to: 'users#login'
+
   get '/users/:id/sign_out', to: 'users#sign_out', as: :sign_out
 
   get '/gravitate', to: 'gravitates#index'

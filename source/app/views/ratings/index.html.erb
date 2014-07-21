@@ -1,22 +1,32 @@
 <div class="side_nav">
-  <h3 id="rate_others_head">Rate Others</h3>
-  <i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left
+  <h3 id="rate_others_head">Rate Others </h3>
+
+  <div class="users">
+  <% User.all.each do |user| %>
+   <br><br>
+    <%= link_to user.name, user_ratings_path(user) %>
+  <% end %>
+  </div>
 </div>
 
 <div class="rate_yourself">
-  <h2 id="rate_yourself_head">First Rate Yourself!</h2>
-<%= @user.name %>
+  <% if current_user.id == @user.id %>
+    <h2 id="rate_yourself_head">Rate <%= @user.name %>!</h2>
+  <% else %>
+    <h2 id="rate_yourself_head">Rate <%= @user.name %>!</h2>
+  <% end %>
 <%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
  <% @ratings.each do |rating| %>
-    <%= f.label rating.trait.name %>
+    <%= f.label rating.trait.name %><br>
     <input type="range" name="traitname" id="traitname_rating" min="0" max="100", class: "range_att1">
     <%# fields_for range_field, trait.current_user_rating, max: 100, min: 0 %>
     <input type="checkbox" name="something" id="something" class: "range_att1">
-    <br>
+    <br><br>
   <% end %>
   <%= f.submit :class => 'button_link' %>
 <% end %>
 </div>
+
 
 
 

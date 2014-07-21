@@ -23,7 +23,9 @@ body {
   left:0;
   margin-top:82px;
   border-right: 3px solid black;
+  overflow:auto;
 }
+
 
 #logo_pic {
   height:70px;
@@ -46,6 +48,10 @@ body {
   top:250px;
 }
 
+.users {
+  text-align: center;
+}
+
 .login_form {
   position:relative;
   width:400px;
@@ -61,13 +67,14 @@ body {
 
 .rate_yourself {
   position:relative;
+  text-align:center;
   width:620px;
-  height:400px;
+  height:430px;
   border: 3px solid black;
   background-color: #73838F;
   border-radius: 10px;
   left:35%;
-  top:300px;
+  top:270px;
 }
 
 header {
@@ -142,10 +149,10 @@ nav {
   left:50px;
 }
 
-.range_att1 {
+#traitname_rating {
   position:relative;
-  width:270px;
-  margin-left:60px;
+  width:210px;
+  margin-left:5px;
 }
 
 .range_att2 {
@@ -164,7 +171,7 @@ nav {
   color:white;
   border:1px solid black;
   border-radius: 5px;
-  width:70px;
+  width:90px;
   height:30px;
   font-size:10px;
   padding-left: 10px;
