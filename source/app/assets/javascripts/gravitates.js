@@ -1,56 +1,86 @@
 
 $(document).ready(function() {
-  var methods = ['perception', 'individual', 'accurate', 'deluded']
+  var methods = ['perception', 'individual', 'accurate', 'deluded'];
   var gdata = ''
   $("#graph_it").submit(function(e){
-    gdata = ''
     $('#scatter-load').html("")
     $('#filters').html("")
       e.preventDefault();
-      $("#delusion").remove();
+
       $.post('/gravitate', $("#graph_it").serialize(), 'json')
+
         .done(function(data){
           gdata = data;
-        users = [{
-            x: data.self_score_1,
-            y: data.self_score_2,
-            z: data.name,
-            size: 6
-        }, {
-            x: data.user_score_1,
-            y: data.user_score_2,
-            z: data.name_perceived,
-            size: 6 + data.num_votes * (.5)
-        }]
+          users = makeUsers(data);
+          showScatterPlot(users, data);
 
-        showScatterPlot(users, data);
-
-      $.each(methods, function(i, method){
-        $("#filters").append("<button id =" + method + i + ">Most " + method + " Person in " + gdata.skill_1_name + " and " + gdata.skill_2_name+ "</button>")
-        //$("#filters").append("<button id =" + method + i + ">Most" + method + " Person in " + gdata.skill_2_name + "</button>")
-        console.log(method);
-        $("#filters").on("click", "#"+method+i, function(e){
-          $.get('/filter_request/'+method, {skill_1: gdata.trait_1_id, skill_2: gdata.trait_2_id}, 'json')
-            .done(function(data){
-              console.log('did it')
-            users = [{
-            x: data.self_score_1,
-            y: data.self_score_2,
-            z: data.name,
-            size: 6
-        }, {
-            x: data.user_score_1,
-            y: data.user_score_2,
-            z: data.name_perceived,
-            size: 6 + data.num_votes * (.5)
-        }]
-          $('#scatter-load').html("")
-          showScatterPlot(users, gdata);
-            })
-        })
+          $.each(methods, function(i, method){
+            randNum = Math.floor((Math.random() * 10000) + 1 * i);
+            $("#filters").append("<button id =" + method + randNum + ">Most " + method + " Person in " + gdata.skill_1_name + " and " + gdata.skill_2_name+ "</button>")
+            $("#filters").on("click", "#"+method+randNum, function(e){
+              
+              $.get('/filter_request/'+method, {skill_1: gdata.trait_1_id, skill_2: gdata.trait_2_id}, 'json')
+                
+                .done(function(data){
+                  gdata = data;
+                  users = makeUsers(data);
+                  $('#scatter-load').html("")
+                  showScatterPlot(users, gdata);
+                })
+          })
         })
   });
-  });
+});
+
+  $('#scatter-load').on('click', '#self', function(e){
+    $('#dot_data').html("User name: " + gdata.name + "<br>");
+    $('#dot_data').append("Rated themselves in "+gdata.skill_1_name+": "+ gdata.self_score_1+"<br>")
+    if(gdata.skill_1_name != gdata.skill_2_name){
+      $('#dot_data').append("Rated themselves in "+gdata.skill_2_name+": "+ gdata.self_score_2+"<br>")
+    }
+  })
+  $('#scatter-load').on('click', '#users', function(e){
+    $('#dot_data').html(gdata.num_votes_1+" users rated "+gdata.name+" a "+ gdata.user_score_1 + " in " + gdata.skill_1_name + "<br>");
+    if(gdata.skill_1_name != gdata.skill_2_name){
+    $('#dot_data').append(gdata.num_votes_2+" users rated "+gdata.name+" a "+ gdata.user_score_2 + " in " + gdata.skill_2_name + "<br>");
+    }
+  })
+  $('#scatter-load').on('mouseover', '#self', function(e){
+    var selected = d3.select('#self');
+    selected.attr('r', 12);
+    selected.style("stroke-width", 2)
+    selected.style("stroke", "black")
+    selected.style('fill', 'red');
+  })
+  $('#scatter-load').on('mouseout', '#self', function(e){
+    var selected = d3.select('#self');
+    selected.attr('r', 6);
+    selected.style('fill', 'blue');
+    selected.style("stroke-width", 0);
+  })
+  $('#scatter-load').on('mouseover', '#users', function(e){
+    var selected = d3.select('#users');
+    selected.attr('r', 12);
+    selected.style("stroke-width", 2)
+    selected.style("stroke", "black")
+    selected.style('fill', 'red');
+  })
+  $('#scatter-load').on('mouseout', '#users', function(e){
+    var selected = d3.select('#users');
+    selected.attr('r', dotSize(gdata));
+    selected.style('fill', 'orange');
+    selected.style("stroke-width", 0);
+  })
+//   $('#scatter-load').on('mouseover', '#line', function(e){
+//   var selected = d3.select('#line');
+//   selected.style("stroke-width", 4)
+//   selected.style('fill', 'red');
+// })
+// $('#scatter-load').on('mouseout', '#line', function(e){
+//   var selected = d3.select('#line');
+//   selected.attr('r', dotSize(gdata));
+//   selected.style("stroke-width", 2);
+// })
 });
 
 

@@ -3,7 +3,7 @@ ben = User.create(name: "Ben Brostoff",
             password: "test",
             password_confirmation: "test")
 
-greg = User.create(name: "Greg Picollo",
+greg = User.create(name: "Greg Piccolo",
             email: "gregf@gmail.com",
             password: "test",
             password_confirmation: "test")

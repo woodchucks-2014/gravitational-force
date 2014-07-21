@@ -6,8 +6,8 @@
 <div class="rate_yourself">
   <h2 id="rate_yourself_head">First Rate Yourself!</h2>
 
-<%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
-  <%= f.label @user.name %><br>
+<%= form_for(@ratee, url: user_ratings_path(@ratee, action: "create"), method: :post) do |f| %>
+  <%= f.label @ratee.name %><br>
   <% @ratings.each do |rating| %>
     <%= fields_for rating do |r| %>
       <%= r.label rating.trait.name %><br>
