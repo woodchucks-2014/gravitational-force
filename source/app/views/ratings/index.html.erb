@@ -1,3 +1,4 @@
+
 <div class="side_nav">
   <h3 id="rate_others_head">Rate Others </h3>
 
@@ -10,6 +11,9 @@
 </div>
 
 <div class="rate_yourself">
+  <notice class="notice">
+    <%= notice %>
+  </notice>
   <% if current_user.id == @ratee.id %>
     <h2 id="rate_yourself_head">Rate Yourself!</h2>
   <% else %>
