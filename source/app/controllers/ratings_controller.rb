@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-   #include UsersHelper
+  include ApplicationHelper
 
   def index
     p "*" * 50
@@ -29,5 +29,6 @@ class RatingsController < ApplicationController
     end
     redirect_to root_path
   end
+
 
 end

@@ -9,6 +9,8 @@
       <% end %>
 
       <% if logged_in? %>
+      <span class="left_nav"> Logged in as <%=current_user.name%> </span>
+      <%= link_to "GraviRate!", user_ratings_path(current_user), :class => "nav_link"%>
       <%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_link"%>
       <% end %>
     </ul>

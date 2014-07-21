@@ -25,6 +25,12 @@ body {
   border-right: 3px solid black;
 }
 
+.left_nav {
+  float: left;
+  display: inline-block;
+  margin-right: 100px;
+}
+
 #logo_pic {
   height:70px;
   width:70px;

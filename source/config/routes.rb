@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "users#welcome"
+  root 'gravitates#index'
   resources :users do
     resources :ratings
   end

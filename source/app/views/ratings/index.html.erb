@@ -1,6 +1,12 @@
 <div class="side_nav">
-  <h3 id="rate_others_head">Rate Others</h3>
-  <i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left
+  <h3 id="rate_others_head">Rate Others </h3>
+
+  <div class="users">
+  <% User.all.each do |user| %>
+   <br><br>
+    <%= link_to user.name, user_ratings_path(user) %>
+  <% end %>
+  </div>
 </div>
 
 <div class="rate_yourself">
