@@ -1,9 +1,7 @@
 class RatingsController < ApplicationController
-  include ApplicationHelper
+  include UsersHelper
 
   def index
-    p "*" * 50
-    p "TEST"
     @user = current_user
     @ratee = User.find(params[:user_id])
     @ratings = []
