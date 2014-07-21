@@ -6,7 +6,7 @@
 <div class="rate_yourself">
   <h2 id="rate_yourself_head">First Rate Yourself!</h2>
 <%= @user.name %>
-<%= form_for(@user, url: {action: "create"}) do |f| %>
+<%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
  <% @ratings.each do |rating| %>
     <%= f.label rating.trait.name %>
     <input type="range" name="traitname" id="traitname_rating" min="0" max="100", class: "range_att1">

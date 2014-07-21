@@ -64,6 +64,7 @@ describe User do
 
     ben.received_ratings << [rating_7, rating_8, rating_9,
                             rating_10, rating_11, rating_12]
+
     #talk to rebecca about why factory girl does not create
     #item in database / association
   end

@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rails_helper'
 
 feature 'ability to choose from drop down menu' do
