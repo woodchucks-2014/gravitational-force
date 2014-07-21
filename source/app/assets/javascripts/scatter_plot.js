@@ -76,9 +76,16 @@ function showScatterPlot(data, all_data) {
       });
 
       // we add our first graphics element! A circle!
-      userGroup.append("circle")
+      
+      circ = userGroup.append("circle")
           .attr("r", function(d) {return d.size})
-          .attr("class", "dot")
+          .attr("class", "dot") 
+          .attr("id", function(d, i) { if(i===0){
+                                        return 'self';
+                                        }
+                                        if(i===1){
+                                        return 'users';
+                                        }})
           .style("fill", function (d) {
           // remember the ordinal scales? We use the colors scale to get a colour for our manufacturer. Now each node will be coloured
           // by who makes the chocolate.
