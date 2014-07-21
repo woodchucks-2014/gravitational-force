@@ -11,6 +11,7 @@ class RatingsController < ApplicationController
   end
 
   def create
+    p params
     redirect_to root_path
   end
 

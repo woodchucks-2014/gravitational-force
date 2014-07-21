@@ -1,12 +1,12 @@
 <h1> Hi Everyone! </h1>
 <%= @user.name %>
 <%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
- <% @ratings.each do |rating| %>
-    <%= f.label rating.trait.name %>
-    <input type="range" name="traitname" id="traitname_rating" min="0" max="100">
-    <%# fields_for range_field, trait.current_user_rating, max: 100, min: 0 %>
-    <input type="checkbox" name="something" id="something">
-    <br>
+  <% @ratings.each do |rating| %>
+    <%= fields_for rating do |r| %>
+      <%= r.label rating.trait.name %>
+      <%= r.range_field :value, :in => 0..100 %>
+      <%#= r.check_box %>
+    <% end %>
   <% end %>
   <%= f.submit %>
 <% end %>
