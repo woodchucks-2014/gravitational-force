@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  include UsersHelper
 
     def index
     @user = User.find(params[:user_id])
@@ -11,7 +12,9 @@ class RatingsController < ApplicationController
   end
 
   def create
+    print "\n\n\n\n\n\n\n\n\n"
     p params
+    print "\n\n\n\n\n\n\n\n\n"
     redirect_to root_path
   end
 
