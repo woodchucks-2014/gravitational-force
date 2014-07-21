@@ -1,4 +1,10 @@
-<h1> Hi Everyone! </h1>
+<div class="side_nav">
+  <h3 id="rate_others_head">Rate Others</h3>
+  <i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left
+</div>
+
+<div class="rate_yourself">
+  <h2 id="rate_yourself_head">First Rate Yourself!</h2>
 <%= @user.name %>
 <%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
   <% @ratings.each do |rating| %>
@@ -8,7 +14,15 @@
       <%#= r.check_box %>
     <% end %>
   <% end %>
-  <%= f.submit %>
+  <%= f.submit :class => 'button_link' %>
 <% end %>
+</div>
+
+
+
+
+
+
+
 
 
