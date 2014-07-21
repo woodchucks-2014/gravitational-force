@@ -20,9 +20,11 @@ drew = User.create(name: "Drew Teter",
 
 programming = Trait.create(name: "Programming")
 sports = Trait.create(name: "Sports")
+guitar = Trait.create(name: "Guitar")
+social = Trait.create(name: "Sociability")
 
 users = [ben,greg,katie,drew]
-traits = [programming, sports]
+#traits = [programming, sports, guitar, social]
 
 
 def loop_it(users, trait)
@@ -34,6 +36,6 @@ def loop_it(users, trait)
     end
 end
 
-traits.each do |trait|
+[programming, sports, guitar, social].each do |trait|
     loop_it(users, trait)
 end

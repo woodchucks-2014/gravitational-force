@@ -15,7 +15,7 @@ class GravitatesController < ApplicationController
   def filter_request
     p params
     m = User.method(params[:request])
-    user = m.call(Trait.find(params[:skill_1].to_i))
+    user = m.call(Trait.find(params[:skill_1].to_i), Trait.find(params[:skill_2].to_i))
     @response = make_hash(params, user)
     render json: @response
   end
