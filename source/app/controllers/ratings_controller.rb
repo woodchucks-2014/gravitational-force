@@ -4,11 +4,7 @@ class RatingsController < ApplicationController
     @user = User.find(params[:user_id])
     @ratings = []
     Trait.all.each do |trait|
-<<<<<<< HEAD
-      rating = Rating.where(ratee_id: @user.id, trait_id: trait.id).first
-=======
       rating = Rating.where(ratee_id: @user.id, rater_id: current_user.id, trait_id: trait.id).first
->>>>>>> upsteam/master
       rating ||= Rating.new(ratee_id: @user.id, rater_id: current_user.id, trait_id: trait.id)
       @ratings << rating
     end
