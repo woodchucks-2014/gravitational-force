@@ -54,13 +54,13 @@ class User < ActiveRecord::Base
   end
 
   def self.perception(trait_1, trait_2) #perception is "higher"
-    filter = User.all { |user| user.discrepancy(trait_1, trait_2) == false }
-    filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.last
+    filter = User.all.select { |user| user.discrepancy(trait_1, trait_2) == false }
+    filter.sort_by{ |user| user.point_distance(trait_1, trait_2) }.last
   end
 
   def self.individual(trait_1, trait_2) #self rating is "higher"
-    filter = User.all { |user| user.discrepancy(trait_1, trait_2) == true }
-    filter.sort_by{|user| user.point_distance(trait_1, trait_2)}.first
+    filter = User.all.select { |user| user.discrepancy(trait_1, trait_2) == true }
+    filter.sort_by{ |user| user.point_distance(trait_1, trait_2) }.last
   end
 
   def self.accurate(trait_1, trait_2) #most on point
