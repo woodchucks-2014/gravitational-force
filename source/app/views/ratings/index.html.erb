@@ -11,7 +11,7 @@
   <% @ratings.each do |rating| %>
     <%= fields_for rating do |r| %>
       <%= r.label rating.trait.name %><br>
-      <%= r.range_field :value, :in => 0..100, name: "#{rating.trait.name}[value]" %>
+      <%= r.range_field :value, :in => 0..100, name: "#{rating.trait.name}[value]", id: rating.trait.name + "_id" %>
       <%= check_box_tag "save_#{rating.trait.name}" %> Save <br>
     <% end %>
   <% end %>

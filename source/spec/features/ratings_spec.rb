@@ -17,10 +17,10 @@ feature 'ability to view ratings' do
     allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
     trait = FactoryGirl.create :trait
     visit user_ratings_path(user)
-    find(:xpath, "//input[@id='#{trait.name}_rating']").set 57
-    check('something')
+    find(:xpath, "//input[@id='#{trait.name}_id']").set 57
+    check('save_' + trait.name)
     click_button('Update User')
-    expect{Rating.all}.to change(Rating, :count).by 1
+    expect(Rating.all.size).to eq(1)
   end
 
 end
