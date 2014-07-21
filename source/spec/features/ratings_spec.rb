@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rails_helper'
 
 feature 'ability to view ratings' do
@@ -21,7 +20,7 @@ feature 'ability to view ratings' do
     find(:xpath, "//input[@id='#{trait.name}_rating']").set 57
     check('something')
     click_button('Update User')
-    expect(Rating.all).to change(Rating, :count).by 1
+    expect{Rating.all}.to change(Rating, :count).by 1
   end
 
 end

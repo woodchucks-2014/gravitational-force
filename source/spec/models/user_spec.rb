@@ -7,20 +7,20 @@ describe User do
 
   let(:sports) {FactoryGirl.create :trait}
   let(:rating_1) {Rating.create(value: 10,
-                  rating_user_id: ben.id,
-                  rated_user_id: greg.id,
+                  rater_id: ben.id,
+                  ratee_id: greg.id,
                   trait_id: sports.id)}
   let(:rating_2) {Rating.create(value: 20,
-                  rating_user_id: drew.id,
-                  rated_user_id: greg.id,
+                  rater_id: drew.id,
+                  ratee_id: greg.id,
                   trait_id: sports.id)}
   let(:rating_3) {Rating.create(value: 30,
-                  rating_user_id: greg.id,
-                  rated_user_id: greg.id,
+                  rater_id: greg.id,
+                  ratee_id: greg.id,
                   trait_id: sports.id)}
 
   before(:each) do
-    greg.user_ratings << [rating_1, rating_2, rating_3]
+    greg.received_ratings << [rating_1, rating_2, rating_3]
     #talk to rebecca about why factory girl does not create
     #item in database / association
   end
@@ -30,7 +30,7 @@ describe User do
   end
 
   it "should have rating" do
-    expect(greg.user_ratings.size).to eq(3)
+    expect(greg.received_ratings.size).to eq(3)
   end
 
    it "should create an instance of a rating" do
