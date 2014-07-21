@@ -11,6 +11,16 @@ function makeUsers(data){
             y: data.user_score_2,
             z: "Users",
             size: dotSize(data)
+        },{
+            x: data.my_score_1,
+            y: data.my_score_2,
+            z: "Your Rating",
+            size: 6
+        },{
+            x: data.my_rating_1,
+            y: data.my_rating_2,
+            z: "Users Rated You",
+            size: 6
         }]
 }
 

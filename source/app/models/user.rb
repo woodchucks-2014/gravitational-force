@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, format: {with: /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,}/}
 
+  def my_score(trait, user)
+    rating = self.submitted_ratings.find_by(trait_id: trait.id, ratee: user.id)
+    rating.value
+  end
+
   def user_score(trait)
     ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     ratings.map! { |rating| rating.value }
@@ -60,7 +65,8 @@ class User < ActiveRecord::Base
 
   def self.individual(trait_1, trait_2) #self rating is "higher"
     filter = User.all.select { |user| user.discrepancy(trait_1, trait_2) == true }
-    filter.sort_by{ |user| user.point_distance(trait_1, trait_2) }.last
+    user = filter.sort_by{ |user| user.point_distance(trait_1, trait_2) }.last
+    #there's a broken math function in here somewhere
   end
 
   def self.accurate(trait_1, trait_2) #most on point

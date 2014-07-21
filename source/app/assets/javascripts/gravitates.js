@@ -25,7 +25,7 @@ $(document).ready(function() {
                   gdata = data;
                   users = makeUsers(data);
                   $('#scatter-load').html("")
-                  showScatterPlot(users, gdata);
+                  showScatterPlot(users, data);
                 })
           })
         })
@@ -33,7 +33,7 @@ $(document).ready(function() {
 });
 
   $('#scatter-load').on('click', '#self', function(e){
-    $('#dot_data').html("User name: " + gdata.name + "<br>");
+    $('#dot_data').html(gdata.name + "<br>");
     $('#dot_data').append("Rated themselves in "+gdata.skill_1_name+": "+ gdata.self_score_1+"<br>")
     if(gdata.skill_1_name != gdata.skill_2_name){
       $('#dot_data').append("Rated themselves in "+gdata.skill_2_name+": "+ gdata.self_score_2+"<br>")
@@ -45,6 +45,18 @@ $(document).ready(function() {
     $('#dot_data').append(gdata.num_votes_2+" users rated "+gdata.name+" a "+ gdata.user_score_2 + " in " + gdata.skill_2_name + "<br>");
     }
   })
+  $('#scatter-load').on('click', '#me', function(e){
+    $('#dot_data').html("You rated "+gdata.name+" a "+ gdata.my_score_1 + " in " + gdata.skill_1_name + "<br>");
+    if(gdata.skill_1_name != gdata.skill_2_name){
+      $('#dot_data').append("You rated "+gdata.name+" a "+ gdata.my_score_2 + " in " + gdata.skill_2_name + "<br>");
+  }
+  })
+  $('#scatter-load').on('click', '#you', function(e){
+    $('#dot_data').html("You were rated a "+ gdata.my_rating_1 + " in " + gdata.skill_1_name + " by users<br>");
+    if(gdata.skill_1_name != gdata.skill_2_name){
+      $('#dot_data').append("You were rated a "+ gdata.my_rating_2 + " in " + gdata.skill_2_name + " by users<br>");
+  }
+})
   $('#scatter-load').on('mouseover', '#self', function(e){
     var selected = d3.select('#self');
     selected.attr('r', 12);
@@ -71,6 +83,31 @@ $(document).ready(function() {
     selected.style('fill', 'orange');
     selected.style("stroke-width", 0);
   })
+  $('#scatter-load').on('mouseover', '#me', function(e){
+    var selected = d3.select('#me');
+    selected.attr('r', 12);
+    selected.style("stroke-width", 2)
+    selected.style("stroke", "black")
+    selected.style('fill', 'red');
+  })
+  $('#scatter-load').on('mouseout', '#me', function(e){
+    var selected = d3.select('#me');
+    selected.attr('r', 6);
+    selected.style('fill', 'green');
+    selected.style("stroke-width", 0);
+  })
+  $('#scatter-load').on('mouseover', '#you', function(e){
+  var selected = d3.select('#you');
+  selected.attr('r', 12);
+  selected.style("stroke", "black")
+  selected.style("stroke-width", 2);
+})
+$('#scatter-load').on('mouseout', '#you', function(e){
+  var selected = d3.select('#you');
+  selected.attr('r', 6);
+  selected.style('fill', 'red');
+  selected.style("stroke-width", 0);
+})
 //   $('#scatter-load').on('mouseover', '#line', function(e){
 //   var selected = d3.select('#line');
 //   selected.style("stroke-width", 4)
