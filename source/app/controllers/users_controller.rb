@@ -4,6 +4,11 @@ class UsersController < ApplicationController
 
   end
 
+  def test
+    flash[:notice] = true
+    redirect_to '/'
+  end
+
   def login
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
