@@ -127,7 +127,11 @@ function showScatterPlot(data, all_data) {
                                         }
                                         if(i===2){
                                         return 'me';
-                                        }})
+                                        }
+                                        if(i===3){
+                                        return 'you';
+                                        }
+                                      })
           .style("fill", function (d) {
           return colors(d.z);
       });

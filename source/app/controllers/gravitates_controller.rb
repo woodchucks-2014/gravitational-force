@@ -30,6 +30,8 @@ class GravitatesController < ApplicationController
                  self_score_2: ratee.self_score(trait_2),
                  my_score_1: @user.my_score(trait_1, ratee),
                  my_score_2: @user.my_score(trait_2, ratee),
+                 my_rating_1: @user.user_score(trait_1),
+                 my_rating_2: @user.user_score(trait_2),
                  num_votes_1: ratee.num_votes(trait_1),
                  num_votes_2: ratee.num_votes(trait_2),
                  skill_1_name: trait_1.name,

@@ -14,7 +14,12 @@ function makeUsers(data){
         },{
             x: data.my_score_1,
             y: data.my_score_2,
-            z: "My Score",
+            z: "Your Rating",
+            size: 6
+        },{
+            x: data.my_rating_1,
+            y: data.my_rating_2,
+            z: "Users Rated You",
             size: 6
         }]
 }
