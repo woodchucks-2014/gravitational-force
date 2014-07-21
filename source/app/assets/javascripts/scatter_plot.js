@@ -70,7 +70,7 @@ function showScatterPlot(data, all_data) {
                                           return 2;
                                         }} )
 
-    
+
       // we add the axes SVG component. At this point, this is just a placeholder. The actual axis will be added in a bit
       svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + y.range()[0] + ")");
       svg.append("g").attr("class", "y axis");
@@ -116,7 +116,7 @@ function showScatterPlot(data, all_data) {
 
       // we add our first graphics element! A circle!
       
-       userGroup.append("circle")
+       circles = userGroup.append("circle")
           .attr("r", function(d) {return d.size})
           .attr("class", "dot") 
           .attr("id", function(d, i) { if(i===0){
@@ -124,12 +124,14 @@ function showScatterPlot(data, all_data) {
                                         }
                                         if(i===1){
                                         return 'users';
+                                        }
+                                        if(i===2){
+                                        return 'me';
                                         }})
           .style("fill", function (d) {
-          // remember the ordinal scales? We use the colors scale to get a colour for our manufacturer. Now each node will be coloured
-          // by who makes the chocolate.
           return colors(d.z);
       });
+          //console.log(circles[0][1]["__data__"].x);
 
       // now we add some text, so we can see what each item is.
       userGroup.append("text")
@@ -141,13 +143,28 @@ function showScatterPlot(data, all_data) {
       });
 
           
-
+      var set_x = 0;
+      var set_y = 0;
       var line = d3.svg.line()
-        .x(function(d){return x(d.x);})
-        .y(function(d){return y(d.y);})
+        .x(function(d, i){
+                          if(i < 2){
+                            set_x = d.x;
+                            return x(d.x);
+                          }
+                          else{
+                            return x(set_x);
+                          }
+                        })
+        .y(function(d, i){
+                          if(i < 2){
+                            set_y = d.y;
+                            return y(d.y);
+                          }
+                          else{
+                            return y(set_y);
+                          }
+                        })
         line.interpolate("basis");
-
-        console.log(line);
 
       svg.append("path")
         .attr("d", function(d) { return line(data)})
