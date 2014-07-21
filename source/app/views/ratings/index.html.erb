@@ -1,14 +1,25 @@
-<h1> Hi Everyone! </h1>
-<%= @user.name %>
-<%= form_for(@user, url: {action: "create"}) do |f| %>
- <% @ratings.each do |rating| %>
-    <%= f.label rating.trait.name %>
-    <input type="range" name="traitname" id="traitname_rating" min="0" max="100">
-    <%# fields_for range_field, trait.current_user_rating, max: 100, min: 0 %>
-    <input type="checkbox" name="something" id="something">
-    <br>
+<div class="side_nav">
+  <h3 id="rate_others_head">Rate Others</h3>
+  <i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left
+</div>
+
+<div class="rate_yourself">
+  <h2 id="rate_yourself_head">First Rate Yourself!</h2>
+
+<%= form_for(@user, url: user_ratings_path(@user, action: "create"), method: :post) do |f| %>
+  <%= f.label @user.name %><br>
+  <% @ratings.each do |rating| %>
+    <%= fields_for rating do |r| %>
+      <%= r.label rating.trait.name %><br>
+      <%= r.range_field :value, :in => 0..100, name: "#{rating.trait.name}[value]", id: rating.trait.name + "_id" %>
+      <%= check_box_tag "save_#{rating.trait.name}" %> Save <br>
+    <% end %>
   <% end %>
-  <%= f.submit %>
+  <%= f.submit :class => 'button_link' %>
 <% end %>
+</div>
+
+
+
 
 
