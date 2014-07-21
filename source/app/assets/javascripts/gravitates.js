@@ -71,6 +71,16 @@ $(document).ready(function() {
     selected.style('fill', 'orange');
     selected.style("stroke-width", 0);
   })
+//   $('#scatter-load').on('mouseover', '#line', function(e){
+//   var selected = d3.select('#line');
+//   selected.style("stroke-width", 4)
+//   selected.style('fill', 'red');
+// })
+// $('#scatter-load').on('mouseout', '#line', function(e){
+//   var selected = d3.select('#line');
+//   selected.attr('r', dotSize(gdata));
+//   selected.style("stroke-width", 2);
+// })
 });
 
 

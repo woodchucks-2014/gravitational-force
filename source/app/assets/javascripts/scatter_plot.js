@@ -32,6 +32,45 @@ function showScatterPlot(data, all_data) {
       // Note that height goes first due to the weird SVG coordinate system
       .range([height - margins.top - margins.bottom, 0]);
 
+      svg.selectAll("line.x")
+      .data(x.ticks(10))
+      .enter().append("line")
+      .attr("class", "x")
+      .attr("x1", x)
+      .attr("x2", x)
+      .attr("y1", 0)
+      .attr("y2", height - 200)
+      .style("stroke", function(d, i) {if(i === 5){
+                                        return "blue"
+                                      }
+                                      else{
+                                        return "grey"
+                                      }
+                                      } )
+      .style("stroke-width", function(d, i) {if(i === 5){
+                                        return 2;
+                                      }} )
+
+      svg.selectAll("line.y")
+        .data(y.ticks(10))
+        .enter().append("line")
+        .attr("class", "y")
+        .attr("x1", 0)
+        .attr("x2", width - 200)
+        .attr("y1", y)
+        .attr("y2", y)
+        .style("stroke", function(d, i) {if(i === 5){
+                                          return "blue"
+                                        }
+                                        else{
+                                          return "grey"
+                                        }
+                                        } )
+        .style("stroke-width", function(d, i) {if(i === 5){
+                                          return 2;
+                                        }} )
+
+    
       // we add the axes SVG component. At this point, this is just a placeholder. The actual axis will be added in a bit
       svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + y.range()[0] + ")");
       svg.append("g").attr("class", "y axis");
@@ -101,14 +140,19 @@ function showScatterPlot(data, all_data) {
           return d.z;
       });
 
+          
+
       var line = d3.svg.line()
         .x(function(d){return x(d.x);})
         .y(function(d){return y(d.y);})
-        .interpolate("basis");
+        line.interpolate("basis");
+
+        console.log(line);
 
       svg.append("path")
         .attr("d", function(d) { return line(data)})
         .attr("transform", "translate(0,0)")
+        .attr("id", "line")
         .style("stroke-width", 2)
         .style("stroke", "black")
         .style("fill", "none");
