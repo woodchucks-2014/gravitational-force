@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+#Heroku
+gem 'rails_12factor', group: :production
 #d3 library
 gem 'd3_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
