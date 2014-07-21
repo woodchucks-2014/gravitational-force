@@ -124,36 +124,36 @@ describe User do
 
   end
 
-  context ".perception" do
+  # context ".perception" do
 
-    it "should return the user with largest distance where perception is greater than self rating" do
-      pending
-    end
+  #   it "should return the user with largest distance where perception is greater than self rating" do
+  #     expect(self.perception(sports, programming).size).to eq(1)
+  #   end
 
-  end
+  # end
 
-  context ".individual" do
+  # context ".individual" do
 
-    it "should return the user with largest distance where individual is greater than perception rating" do
-      pending
-    end
+  #   it "should return the user with largest distance where individual is greater than perception rating" do
+  #     expect(User.individual(programming,sports).id).to eq(greg.id)
+  #   end
 
-  end
+  # end
 
-  context ".accurate" do
+  # context ".accurate" do
 
-    it "should return the user who has the smallest distance between self and perception" do
-      pending
-    end
+  #   it "should return the user who has the smallest distance between self and perception" do
+  #     expect(User.accurate(programming,sports).id).to eq(greg.id)
+  #   end
 
-  end
+  # end
 
-  context ".deluded" do
+  # context ".deluded" do
 
-    it "should return the user who has the largest distance between self and perception" do
-      pending
-    end
+  #   it "should return the user who has the largest distance between self and perception" do
+  #     expect(User.deluded(programming,sports).id).to eq(ben.id)
+  #   end
 
-  end
+  # end
 
 end
