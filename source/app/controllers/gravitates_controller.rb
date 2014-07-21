@@ -16,13 +16,20 @@ class GravitatesController < ApplicationController
     m = User.method(params[:request])
     user = m.call(Trait.find(params[:skill_1].to_i), Trait.find(params[:skill_2].to_i))
     @response = make_hash(params, user)
+
     render json: @response
   end
 
+  private
+
   def make_hash(params, ratee)
-    current_user
+    @user = current_user
     trait_1 = Trait.find(params[:skill_1])
     trait_2 = Trait.find(params[:skill_2])
+    p "*" * 100
+    p ratee.user_score(trait_1)
+    p "*" * 100
+    p ratee.user_score(trait_2)
     response = { name: ratee.name,
                  user_score_1: ratee.user_score(trait_1),
                  user_score_2: ratee.user_score(trait_2),
@@ -38,7 +45,7 @@ class GravitatesController < ApplicationController
                  skill_2_name: trait_2.name,
                  trait_1_id: trait_1.id,
                  trait_2_id: trait_2.id
-                 }
+                }
   end
 
 

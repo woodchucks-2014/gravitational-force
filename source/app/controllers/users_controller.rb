@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params(params))
     if @user.save
       session[:user] = @user.id
-      redirect_to user_path(@user), flash: {notice: 'Successful log in!'}
+      redirect_to user_ratings_path(@user), flash: {notice: 'Successful log in!'}
     else
       redirect_to new_user_path, flash: {notice: 'Failed'}
     end

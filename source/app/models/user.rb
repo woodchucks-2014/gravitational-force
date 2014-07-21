@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   def user_score(trait)
     ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     ratings.map! { |rating| rating.value }
-    ratings.inject(:+) / ratings.length
+    return ratings.inject(:+) / ratings.length if ratings.length > 0
+    0
   end
 
   def num_votes(trait) # submitted or received?
