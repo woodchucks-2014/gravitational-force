@@ -34,25 +34,28 @@ $(document).ready(function() {
 });
 
   $('#scatter-load').on('click', '#self', function(e){
-    $('#dot_data').html(gdata.name + "<br>");
-    $('#dot_data').append("Rated themselves in "+gdata.skill_1_name+": "+ gdata.self_score_1+"<br>")
+    $('#dot_data').html("")
+    $('#dot_data').append(gdata.name + " self-rated "+gdata.skill_1_name+": "+ gdata.self_score_1+"<br>")
     if(gdata.skill_1_name != gdata.skill_2_name){
-      $('#dot_data').append("Rated themselves in "+gdata.skill_2_name+": "+ gdata.self_score_2+"<br>")
+      $('#dot_data').append(gdata.name + " self-rated "+gdata.skill_2_name+": "+ gdata.self_score_2+"<br>")
     }
   })
   $('#scatter-load').on('click', '#users', function(e){
+    $('#dot_data').html("")
     $('#dot_data').html(gdata.num_votes_1+" users rated "+gdata.name+" a "+ gdata.user_score_1 + " in " + gdata.skill_1_name + "<br>");
     if(gdata.skill_1_name != gdata.skill_2_name){
     $('#dot_data').append(gdata.num_votes_2+" users rated "+gdata.name+" a "+ gdata.user_score_2 + " in " + gdata.skill_2_name + "<br>");
     }
   })
   $('#scatter-load').on('click', '#me', function(e){
+    $('#dot_data').html("")
     $('#dot_data').html("You rated "+gdata.name+" a "+ gdata.my_score_1 + " in " + gdata.skill_1_name + "<br>");
     if(gdata.skill_1_name != gdata.skill_2_name){
       $('#dot_data').append("You rated "+gdata.name+" a "+ gdata.my_score_2 + " in " + gdata.skill_2_name + "<br>");
   }
   })
   $('#scatter-load').on('click', '#you', function(e){
+    $('#dot_data').html("")
     $('#dot_data').html("You were rated a "+ gdata.my_rating_1 + " in " + gdata.skill_1_name + " by users<br>");
     if(gdata.skill_1_name != gdata.skill_2_name){
       $('#dot_data').append("You were rated a "+ gdata.my_rating_2 + " in " + gdata.skill_2_name + " by users<br>");

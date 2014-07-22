@@ -8,42 +8,44 @@ notice {
 }
 
 #filters{
-margin-top: 100px;
+  margin-top: 15%;
 }
 
 .right_gravitate{
   clear: none;
   display: inline-block;
   width: 40%;
-  margin: 2%;
   float: left;
 }
 
 .left_gravitate{
   clear: none;
   display: inline-block;
-  width: 40%;
-  margin: 2%;
+  width: 30%;
+  margin-left: 18%;
   float: left;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   /*background-image:url("http://imgur.com/Dt3bNCJ.jpg");*/
-  position:relative;
   padding:10px;
 }
 
 .side_nav {
   background-color:grey;
+  top:150px;
   height: auto;
   padding-bottom: 100px;
-  width:225px;
-  position:fixed;
+  margin-left: 10%;
+  margin-right: 3%;
+  margin-top: 3%;
+  width:25%;
+  float: left;
   left: 10px;
-  margin-top:150px;
   border-radius: 10px;
   border: 3px solid black;
+  overflow: auto; 
 }
 
 .left_nav {
@@ -70,7 +72,7 @@ body {
   background-color: #73838F;
   border-radius: 10px;
   margin: auto;
-  top:250px;
+  margin-top: 5%;
 }
 
 .login_form {
@@ -83,12 +85,12 @@ body {
   background-color: #73838F;
   border-radius: 10px;
   margin: auto;
-  top:250px;
+  margin-top: 5%;
 }
 
 .rate_yourself {
-  position:relative;
-  width:620px;
+  margin-top: 3%;
+  width:55%;
   padding-top: 20px;
   padding-bottom: 30px;
   border: 3px solid black;
@@ -97,6 +99,7 @@ body {
   left:35%;
   top:150px;
   text-align: center;
+  overflow: auto; 
 }
 
 
@@ -105,7 +108,6 @@ header {
   height:80px;
   padding-bottom:20px;
   width:100%;
-  position:fixed;
   left:0;
   top:0;
 }
@@ -155,6 +157,7 @@ nav {
   color:#62655d;
   font-size:30px;
   padding-right: 40px;
+  width: 100%;
 }
 
 #att1_title {
@@ -268,6 +271,7 @@ h3 {
 }
 
 #dot_data {
+  margin-top: 5%;
   text-align: center;
 }
 
