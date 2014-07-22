@@ -12,24 +12,29 @@ class User < ActiveRecord::Base
 
   def my_score(trait, user)
     rating = self.submitted_ratings.find_by(trait_id: trait.id, ratee: user.id)
-    rating.value
+    return rating.value if rating != nil
+    50
   end
 
   def user_score(trait)
     ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     ratings.map! { |rating| rating.value }
     return ratings.inject(:+) / ratings.length if ratings.length > 0
-    0
+    50 #defaults to 50 
   end
 
-  def num_votes(trait) # submitted or received?
+  def num_votes(trait) 
     ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
-    ratings.size
+    return ratings.size if ratings.size != 0
   end
 
 
   def self_score(trait)
-    self.received_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value
+    if self.received_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id) != nil
+      score = self.received_ratings.find_by(trait_id: trait.id, rater_id: self.id, ratee_id: self.id).value 
+      return score 
+    end
+    50 #defaults to 50
   end
 
   def delta(trait) #higher means low self esteem
