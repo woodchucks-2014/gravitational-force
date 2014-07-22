@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   def my_score(trait, user)
     rating = self.submitted_ratings.find_by(trait_id: trait.id, ratee: user.id)
     return rating.value if rating != nil
-    50
+    50 #defaults to 50 
   end
 
   def user_score(trait)
@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   def num_votes(trait) 
     ratings = self.received_ratings.where(trait_id: trait.id).select{|rating| rating.rater_id != self.id}
     return ratings.size if ratings.size != 0
+    1 #everyone's default rating is 50 to being with
   end
 
 
