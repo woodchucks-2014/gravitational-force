@@ -1,0 +1,37 @@
+<div class="side_nav">
+  <h3 id="rate_others_head">Rate Others </h3>
+
+  <div class="users">
+  <% User.all.each do |user| %>
+    <%= link_to user.name, user_ratings_path(user) %>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+
+<div class="rate_yourself">
+  <% if current_user.id == @ratee.id %>
+    <h2 id="rate_yourself_head">Rate Yourself!</h2>
+  <% else %>
+    <h2 id="rate_yourself_head">Rate <%= @ratee.name %>!</h2>
+  <% end %>
+
+<div class="form_rate">
+  <%= form_for(@ratee, url: user_ratings_path(@ratee, action: "create"), method: :post) do |f| %>
+    <% @ratings.each do |rating| %>
+      <%= fields_for rating do |r| %>
+        <%= r.label rating.trait.name %><br>
+        <%= r.range_field :value, :in => 0..100, name: "#{rating.trait.name}[value]", id: rating.trait.name + "_id", :class => "range_att1" %>
+        <%= check_box_tag "save_#{rating.trait.name}" %> Save <br>
+      <% end %>
+    <% end %>
+    <br>
+    <%= f.submit :class => 'button_link' %>
+  <% end %>
+</div>
+</div>
+
+
+
+
+

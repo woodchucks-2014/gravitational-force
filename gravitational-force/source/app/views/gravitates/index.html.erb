@@ -1,0 +1,32 @@
+
+
+<div id="filters">
+</div>
+
+
+<%= form_for :graph, url: "gravitate", html: { :id => "graph_it" } do |f| %>
+Pick a User
+<%= collection_select(:user, :rater_id, User.all, :id, :name) %>
+<br>
+Pick a Skill
+<%= collection_select(:skill_1, :trait_id, Trait.all, :id, :name) %>
+<br>
+Pick a Second Skill
+<%= collection_select(:skill_2, :trait_id, Trait.all, :id, :name) %>
+<br>
+<%= f.submit "Gravitate"%>
+<% end %>
+
+
+<div id="dot_data"></div>
+
+<div id="scatter-load"></div>
+
+
+<script>
+  // trust us, we know what we're doing here
+  var reload = <%= notice %>
+  if (reload) {
+    window.location.replace("/");
+  }
+</script>
